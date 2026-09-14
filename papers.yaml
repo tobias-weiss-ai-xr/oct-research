@@ -1,0 +1,70 @@
+papers:
+- title: 'Example Paper 1: A Foundational Survey of Your Topic'
+  date: 2026-01
+  url: https://arxiv.org/abs/2601.00001
+  category: survey
+  subcategory: hybrid
+  authors:
+  - Example Author A
+  - Example Author B
+  venue: ''
+  code_url: ''
+  project_url: ''
+  abstract: This is a placeholder abstract. Replace it with a real summary of the
+    paper. The corpus pipeline uses title/abstract text for trend analysis, so keep
+    abstracts accurate.
+  tags: []
+- title: 'Example Paper 2: An Agentic Method for Your Topic'
+  date: 2026-03
+  url: https://arxiv.org/abs/2603.00002
+  category: method
+  subcategory: agentic
+  authors:
+  - Example Author C
+  venue: ''
+  code_url: ''
+  project_url: ''
+  abstract: Another placeholder abstract. Papers are grouped by (category, subcategory)
+    and sorted by year in the generated README.
+  tags: []
+- title: 'Example Paper 3: Application Study in Your Domain'
+  date: 2025-11
+  url: https://arxiv.org/abs/2511.00003
+  category: application
+  subcategory: non-agentic
+  authors:
+  - Example Author D
+  - Example Author E
+  venue: ''
+  code_url: ''
+  project_url: ''
+  abstract: A third placeholder. Once you add real papers, re-run the pipeline to
+    regenerate statistics and reports.
+  tags: []
+- title: 'Example Paper 4: An Evaluation Benchmark for Your Topic'
+  date: 2025-08
+  url: https://arxiv.org/abs/2508.00004
+  category: evaluation
+  subcategory: hybrid
+  authors:
+  - Example Author F
+  venue: ''
+  code_url: ''
+  project_url: ''
+  abstract: A placeholder abstract. This example demonstrates the evaluation category
+    with a hybrid subcategory. Replace with a real summary once you add actual papers.
+  tags: []
+- title: 'Example Paper 5: A Survey of Your Topic Across Domains'
+  date: 2025-05
+  url: https://arxiv.org/abs/2505.00005
+  category: survey
+  subcategory: non-agentic
+  authors:
+  - Example Author G
+  - Example Author H
+  venue: ''
+  code_url: ''
+  project_url: ''
+  abstract: Another placeholder abstract. The corpus pipeline uses title/abstract
+    text for trend analysis, so keep abstracts accurate when you add real papers.
+  tags: []

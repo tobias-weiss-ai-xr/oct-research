@@ -1,0 +1,130 @@
+# Intelligence / news ingestion sources (topic-agnostic template).
+#
+# Each source resolves to one of:
+#   - RSS/Atom feed      : {"type": "rss", "url": "..."}
+#   - arXiv API query     : {"type": "arxiv", "categories": [...], "max": N}
+#   - GitHub release feed : {"type": "github", "repos": ["owner/name", ...]}
+#   - structured catalog  : {"type": "cisa_kev", "url": "..."}  (JSON)
+#
+# `category` is a coarse digest bucket: paper | changelog | discussion
+# `weight` biases relevance scoring for higher-trust sources.
+#
+# ── Anti-saturation controls ──────────────────────────────────────────────
+#   recent_days        : drop items published/added older than N days.
+#   default_recent_days: applied to RSS + catalog sources that omit it.
+#   max_items          : hard cap on raw items kept from one source.
+#   max_source_share   : cap a single source's share of the digest slots.
+# These stop static catalogs / full-archive feeds from recycling old items
+# and stop one high-volume feed from crowding out the rest of the digest.
+
+default_recent_days: 0        # normal RSS feeds return recent items already;
+                             # only archive/catalog feeds opt in via recent_days
+max_source_share: 0.40       # no source may take >40% of the digest
+fresh_window_days: 3
+min_score: 0.4
+max_digest_items: 60
+
+sources:
+  # ---------- Papers ----------
+  - name: arxiv-cs
+    type: arxiv
+    categories: ["cs.LG", "cs.AI", "cs.CR"]
+    max: 50
+    category: paper
+    weight: 2.0
+    min_topics: 1
+    recent_days: 0            # papers curated by query relevance, keep all
+
+  # ---------- Tooling / changelog ----------
+  - name: github-releases
+    type: github
+    repos:
+      - "kubernetes/kubernetes"
+      - "hashicorp/terraform"
+      - "open-policy-agent/opa"
+    category: changelog
+    weight: 1.2
+    recent_days: 0
+
+  # ---------- Discussions / news ----------
+  - name: lwn
+    type: rss
+    url: "https://lwn.net/headlines/rss"
+    category: discussion
+    weight: 2.0
+
+  - name: hn-frontpage
+    type: rss
+    url: "https://hnrss.org/frontpage"
+    category: discussion
+    weight: 1.4
+    min_topics: 1
+
+  - name: lobsters
+    type: rss
+    url: "https://lobste.rs/r/programming.rss"
+    category: discussion
+    weight: 1.5
+
+  - name: cncf-blog
+    type: rss
+    url: "https://www.cncf.io/blog/feed/"
+    category: discussion
+    weight: 1.6
+
+  # High-signal security research (example — swap for your topic's feeds).
+  - name: projectzero
+    type: rss
+    url: "https://projectzero.google/feed.xml"
+    category: discussion
+    weight: 1.9
+
+  # Example of a full-archive feed: cap + recent_days keep it from flooding.
+  - name: example-archive-blog
+    type: rss
+    url: "https://snyk.io/blog/feed/"
+    category: discussion
+    weight: 1.8
+    max_items: 15
+    recent_days: 14
+
+  # Static catalog example (only newly-added entries surface each run).
+  - name: cisa-kev
+    type: cisa_kev
+    url: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+    category: changelog
+    weight: 2.0
+    max_items: 40
+    recent_days: 14
+
+# ── Keyword classification ────────────────────────────────────────────────
+# Matches tag an item with the topic label and boost relevance.  Edit these to
+# match your research topic — they are intentionally generic here.
+keywords:
+  ai:
+    - "artificial intelligence"
+    - "machine learning"
+    - "llm"
+    - "neural network"
+  security:
+    - "vulnerabilit"
+    - "cve"
+    - "supply chain"
+    - "sbom"
+    - "secrets"
+    - "zero trust"
+    - "software security"
+  infrastructure:
+    - "kubernetes"
+    - "docker"
+    - "terraform"
+    - "ansible"
+    - "cloud native"
+    - "container"
+  observability:
+    - "observability"
+    - "telemetry"
+    - "prometheus"
+    - "grafana"
+    - "tracing"
+    - "metrics"

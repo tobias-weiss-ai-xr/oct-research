@@ -1,0 +1,162 @@
+# ⚙️ Research Taxonomy & Discovery Config
+#
+# This is the ONLY file you need to adapt for your own research topic.
+# Edit categories/subcategories + discovery queries, then re-run the pipeline.
+#
+# Pipeline:  config/taxonomy.yaml → papers.yaml → validate → README → reports
+
+# ── Topic ────────────────────────────────────────────────────────────────────
+topic:
+  name: "Your Research Topic"          # shown in README header
+  short: "your-topic"                  # used in URLs, badges, docs paths
+  description: "Short description of the research field covered by this corpus."
+  # Optional: GitHub Pages URL shown in the auto-generated README statistics section
+  # github_pages: "https://ORG.github.io/your-topic"
+  openalex_mailto: "research@your-org.example"  # polite-pool email for OpenAlex API
+
+# ── Taxonomy ─────────────────────────────────────────────────────────────────
+# Categories = the main axis of your review (e.g. methods, applications, …).
+# Subcategories = the secondary axis (e.g. architectures, benchmarks, …).
+# Every paper in papers.yaml must carry one category + one subcategory.
+taxonomy:
+  categories:                           # ordered list
+    - id: method
+      display: "Methods & Architectures"
+    - id: application
+      display: "Applications"
+    - id: evaluation
+      display: "Evaluation & Benchmarks"
+    - id: survey
+      display: "Surveys & Taxonomies"
+  subcategories:
+    - id: agentic
+      display: "Agentic"
+    - id: non-agentic
+      display: "Non-Agentic"
+    - id: hybrid
+      display: "Hybrid"
+
+# ── Discovery: arXiv queries (fetch_new_papers.py) ───────────────────────────
+# Each entry is an arXiv API query string (cat: + abs:/ti: operators).
+# Keep them topic-specific; the script deduplicates automatically.
+# Entries can also be dicts with optional category/subcategory_hint:
+#   - query: 'cat:cs.RO AND abs:"manipulation"'
+#     category: manipulation
+#     subcategory_hint: method
+arxiv_queries:
+  - 'cat:cs.AI AND (abs:"YOUR TOPIC A" OR abs:"YOUR TOPIC B")'
+  - 'cat:cs.CL AND (abs:"YOUR TOPIC C" AND abs:"agent")'
+  - 'cat:cs.LG AND abs:"YOUR TOPIC D"'
+
+# ── Discovery: multi-source queries (fetch_other_sources.py) ─────────────────
+# Each entry defines one query against a source (dblp, crossref, europepmc, …).
+other_sources_queries:
+  - source: dblp
+    query: your topic a
+    category: method
+    subcategory_hint: agentic
+  - source: crossref
+    query: your topic b agent survey
+    category: survey
+    subcategory_hint: hybrid
+
+# ── OpenAlex bulk fetch (fetch_openalex_bulk.py) ─────────────────────────────
+# Per-category OpenAlex search phrases.
+openalex_queries:
+  - category: method
+    query: "YOUR TOPIC method architecture"
+  - category: application
+    query: "YOUR TOPIC application system"
+
+# ── GitHub repository discovery (fetch_github_repos.py) ─────────────────────
+# Each entry is a GitHub search query (topic:, keyword combos, stars:>N).
+# Optional keys: category, subcategory_hint, min_stars (per-query override).
+# If no queries are defined, the fetcher prints setup instructions and exits.
+# See: https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+#
+# Examples:
+# github_queries:
+#   - query: "topic:YOUR-TOPIC+stars:>100"
+#     category: application
+#   - query: "YOUR-KEYWORD+tool+stars:>200"
+#     category: method
+#   - query: "YOUR-KEYWORD+framework"
+#     category: method
+#     min_stars: 500          # per-query star threshold override
+#   - query: "YOUR-KEYWORD+awesome+stars:>50"
+#     category: survey
+
+# ── GitLab repository discovery (fetch_gitlab_repos.py) ──────────────────────
+# GitLab public API — no CLI required.  Optional keys: category,
+# subcategory_hint, min_stars, topics (list), language.
+# See: https://docs.gitlab.com/ee/api/projects.html#search-for-projects-by-name
+#
+# Examples:
+# gitlab_queries:
+#   - query: "YOUR TOPIC"
+#     category: application
+#   - query: "YOUR KEYWORD tool"
+#     category: method
+#     min_stars: 10
+#     topics:
+#       - "devops"
+#       - "ci-cd"
+
+# ── Codeberg repository discovery (fetch_codeberg_repos.py) ──────────────────
+# Gitea-compatible API.  Optional keys: category, subcategory_hint,
+# min_stars, language, owner (restrict to org/user).
+# Supports topic:TAG and language:LANG prefixes in query string.
+# See: https://codeberg.org/api/swagger
+#
+# Examples:
+# codeberg_queries:
+#   - query: "YOUR TOPIC"
+#     category: method
+#   - query: "YOUR KEYWORD tool topic:devops"
+#     category: application
+#     min_stars: 5
+#   - query: "YOUR KEYWORD"
+#     category: evaluation
+#     owner: "some-org"
+
+# ── Relevance signals for repo fetchers (optional) ──────────────────────────
+# Extra keyword tokens shared by ALL repo fetchers (github, gitlab, codeberg)
+# to filter out irrelevant repos from broad searches.
+# Also accepts ``github_signals`` as a legacy alias.
+# Auto-extracted from: topic.name, topic.description, taxonomy IDs.
+#
+# repo_signals:
+#   - "llm security"
+#   - "model context protocol"
+#   - "prompt injection"
+
+# ── Trend / burst keywords (optional) ───────────────────────────
+# Topic-specific keywords used by standard_stats.py, trend_scanner.py,
+# and landscape_analyzer.py for keyword-burst analysis.  If omitted,
+# a generic default list is used.  Keep entries lowercase; multi-word
+# phrases are supported (e.g. "world model").
+#
+# trend_keywords:
+#   - "reinforcement learning"
+#   - "manipulation"
+#   - "grasping"
+
+# ── Subclassification keywords (optional) ─────────────────────────
+# Maps subcategory IDs to keyword lists for auto-classification in
+# fetch_new_papers.py and fetch_other_sources.py.  The first matching
+# rule wins.  If omitted, fetchers fall back to category defaults.
+# Each ``id`` MUST match a subcategory defined above (research_config
+# rejects unknown ids), e.g. for the skeleton taxonomy:
+#
+# subcategory_keywords:
+#   - id: agentic
+#     keywords: ["autonomous", "agent", "tool use", "multi-agent"]
+#   - id: non-agentic
+#     keywords: ["classifier", "regression", "embedding", "pipeline"]
+#   - id: hybrid
+#     keywords: ["agentic", "mixed-initiative", "human-in-the-loop"]
+#
+# Pro-tip: give each subcategory in ``taxonomy.subcategories`` an optional
+# ``category`` field (its parent category id).  Then classify_subcategory()
+# narrows keyword rules to the paper's own category and never tags a paper
+# with a subcategory belonging to a different category.

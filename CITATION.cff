@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this research corpus skeleton, please cite it as follows."
+title: "Research Corpus Skeleton — Data-Driven Agentic Literature Review"
+abstract: "Skeleton repository for a data-driven, auto-validated, agentic literature review corpus. Papers in papers.yaml, everything else generated."
+authors:
+  - family-names: "Weiß"
+    given-names: "Tobias"
+    orcid: ""
+date-released: "2026-08-06"
+license: MIT
+keywords:
+  - literature-review
+  - research-corpus
+  - agentic-ai
+  - papers
+  - open-science
+repository-code: "https://github.com/<YOUR_ORG>/skeleton-research"

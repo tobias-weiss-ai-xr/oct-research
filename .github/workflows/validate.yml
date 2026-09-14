@@ -1,0 +1,172 @@
+name: Validate Papers
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'papers.yaml'
+      - 'repos.yaml'
+      - 'scripts/'
+      - 'config/'
+      - 'tools/extract_concepts.py'
+      - 'tools/relate_concepts.py'
+      - 'concepts.json'
+      - 'concept_graph.json'
+      - 'docs/research/concept_map.md'
+      - 'tests/'
+      - 'requirements.txt'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    paths:
+      - 'papers.yaml'
+      - 'repos.yaml'
+      - 'scripts/'
+      - 'config/'
+      - 'tools/extract_concepts.py'
+      - 'tools/relate_concepts.py'
+      - 'concepts.json'
+      - 'concept_graph.json'
+      - 'docs/research/concept_map.md'
+      - 'tests/'
+      - 'requirements.txt'
+      - '.github/workflows/validate.yml'
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC — discover new papers
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: [self-hosted, ci-host]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-validate-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies (cached)
+        run: pip install pyyaml requests --quiet
+
+      - name: Validate config + papers.yaml
+        continue-on-error: false
+        run: |
+          python3 scripts/research_config.py
+          python3 scripts/validate_papers.py
+
+      - name: Check generated outputs are up-to-date
+        continue-on-error: false
+        run: |
+          python3 scripts/generate_readme.py --check
+          python3 scripts/standard_stats.py --check
+          python3 scripts/analysis/generate_reports.py --check
+
+      - name: Verify concept graph builds
+        continue-on-error: false
+        run: |
+          python3 tools/extract_concepts.py --papers papers.yaml --out concepts.json
+          python3 tools/relate_concepts.py --papers papers.yaml --concepts concepts.json --write-doc > concept_graph.json
+          python3 tools/analyze_concept_graph.py --graph concept_graph.json --write-doc > concept_graph_analysis.json
+          test -s concepts.json && test -s concept_graph.json && test -s concept_graph_analysis.json \
+            && test -s docs/research/concept_map.md && test -s docs/research/concept_graph_analysis.md \
+            || { echo 'Concept graph failed to build — check tools/extract_concepts.py + tools/relate_concepts.py + tools/analyze_concept_graph.py'; exit 1; }
+
+  test:
+    runs-on: [self-hosted, ci-host]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-test-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies (cached)
+        run: pip install -r requirements.txt pytest --quiet
+
+      - name: Run unit tests
+        run: python3 -m pytest
+
+  discover:
+    if: github.event_name == 'schedule'
+    runs-on: [self-hosted, ci-host]
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # arXiv discovery is the only fetcher that currently supports a self-
+      # contained --create-pr flow, so it drives the weekly PR. The other
+      # source fetchers (OpenAlex/dblp/crossref/GitHub/GitLab/Codeberg)
+      # append to papers.yaml/repos.yaml directly and are run manually or via
+      # a scheduled human-triggered workflow; wiring them into this job would
+      # leave uncommitted half-PR state since they lack --create-pr.
+      - name: Discover new papers (arXiv)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/fetch/fetch_new_papers.py --months 1 --create-pr
+
+  pages:
+    runs-on: [self-hosted, ci-host]
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate papers.json + stats + reports
+        run: |
+          python3 scripts/generate_readme.py
+          python3 scripts/standard_stats.py
+          python3 scripts/analysis/generate_reports.py
+          python3 tools/extract_concepts.py --papers papers.yaml --out concepts.json
+          python3 tools/relate_concepts.py --papers papers.yaml --concepts concepts.json --write-doc > concept_graph.json
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

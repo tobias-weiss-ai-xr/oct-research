@@ -1,0 +1,170 @@
+{
+ "categories": [
+  {
+   "id": "application",
+   "name": "Applications",
+   "count": 1,
+   "trajectory": {
+    "2025": 1
+   },
+   "momentum": {
+    "id": "application",
+    "name": "Application",
+    "total": 1,
+    "recent": 1,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 1.0,
+    "papers_per_month": 0.1,
+    "score": 100.0
+   }
+  },
+  {
+   "id": "evaluation",
+   "name": "Evaluation & Benchmarks",
+   "count": 1,
+   "trajectory": {
+    "2025": 1
+   },
+   "momentum": {
+    "id": "evaluation",
+    "name": "Evaluation",
+    "total": 1,
+    "recent": 1,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 1.0,
+    "papers_per_month": 0.1,
+    "score": 100.0
+   }
+  },
+  {
+   "id": "method",
+   "name": "Methods & Architectures",
+   "count": 1,
+   "trajectory": {
+    "2026": 1
+   },
+   "momentum": {
+    "id": "method",
+    "name": "Method",
+    "total": 1,
+    "recent": 1,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 1.0,
+    "papers_per_month": 0.1,
+    "score": 100.0
+   }
+  },
+  {
+   "id": "survey",
+   "name": "Surveys & Taxonomies",
+   "count": 2,
+   "trajectory": {
+    "2025": 1,
+    "2026": 1
+   },
+   "momentum": {
+    "id": "survey",
+    "name": "Survey",
+    "total": 2,
+    "recent": 1,
+    "prior": 1,
+    "growth_pct": 0.0,
+    "recent_share": 0.5,
+    "papers_per_month": 0.1,
+    "score": 50.0
+   }
+  }
+ ],
+ "subcategories": [
+  {
+   "id": "agentic",
+   "name": "Agentic",
+   "count": 1
+  },
+  {
+   "id": "hybrid",
+   "name": "Hybrid",
+   "count": 2
+  },
+  {
+   "id": "non-agentic",
+   "name": "Non-Agentic",
+   "count": 2
+  }
+ ],
+ "timeline": [
+  [
+   "2025-05",
+   "survey",
+   "non-agentic"
+  ],
+  [
+   "2025-08",
+   "evaluation",
+   "hybrid"
+  ],
+  [
+   "2025-11",
+   "application",
+   "non-agentic"
+  ],
+  [
+   "2026-01",
+   "survey",
+   "hybrid"
+  ],
+  [
+   "2026-03",
+   "method",
+   "agentic"
+  ]
+ ],
+ "venues": [],
+ "keyword_bursts": [
+  {
+   "keyword": "benchmark",
+   "recent": 1,
+   "total": 1,
+   "burst_score": 1.25,
+   "recent_share": 0.25
+  },
+  {
+   "keyword": "evaluation",
+   "recent": 1,
+   "total": 1,
+   "burst_score": 1.25,
+   "recent_share": 0.25
+  },
+  {
+   "keyword": "method",
+   "recent": 1,
+   "total": 1,
+   "burst_score": 1.25,
+   "recent_share": 0.25
+  },
+  {
+   "keyword": "application",
+   "recent": 1,
+   "total": 1,
+   "burst_score": 1.25,
+   "recent_share": 0.25
+  },
+  {
+   "keyword": "survey",
+   "recent": 1,
+   "total": 2,
+   "burst_score": 0.62,
+   "recent_share": 0.25
+  },
+  {
+   "keyword": "analysis",
+   "recent": 1,
+   "total": 2,
+   "burst_score": 0.62,
+   "recent_share": 0.25
+  }
+ ]
+}

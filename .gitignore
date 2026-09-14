@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+
+# Pipeline outputs (generated — never commit)
+papers.json
+statistics.json
+concepts.json
+concept_graph.json
+docs/topics/
+docs/research/concept_map.md
+
+# News / intelligence ingestion pipeline outputs (regenerated each run)
+data/
+
+# Generated citation export
+paper/
+concept_graph_analysis.json
+docs/research/concept_graph_analysis.md
+
+# verify_sources.py audit report (generated)
+verify-sources-report.json

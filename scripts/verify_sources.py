@@ -1,0 +1,426 @@
+#!/usr/bin/env python3
+"""verify_sources.py — repo-agnostic, polite, fail-early link verifier.
+
+Two-stage check (the second stage only runs when needed):
+  1) HTTP (requests):  classify each URL as OK / BROKEN / UNCERTAIN.
+  2) Browser (Playwright, optional, --browser):  re-check UNCERTAIN URLs.
+       2xx/3xx → OK       404/410/400 → BROKEN
+       401/403/405/406/418 → BOTBLOCK (warn, never fails)
+       429/503 (transient) & connection-drops → UNCERTAIN (warn)
+
+Politeness — "don't hammer":
+  - Limited concurrency (``workers``, default 4).
+  - Per-host throttle: at most one request per ``per_host_delay`` seconds to
+    any single host (default 1.0s) — avoids rate-limiting doi.org / github.
+  - On HTTP 429 (and 503), honours ``Retry-After`` and backs off before
+    retrying.
+  401/403/405/406/418 without a browser are reported as BOTBLOCK (warn);
+  429/503 and connection drops (bulk-scan throttling from CI IPs, e.g. on
+  doi.org/dblp) are transient => UNCERTAIN. CI stays stable while still
+  catching definitively-dead links: 400/404/410, 5xx-after-retries
+  (except 503) and DNS failures (domain gone).
+
+Fail early:
+  When ``fail_on_broken`` is set, the scan aborts as soon as the first
+  ``BROKEN`` link is confirmed (remaining checks are cancelled). Use
+  ``--no-fail-early`` to collect every result first.
+
+Config (JSON or YAML). Paths are resolved relative to the config file.
+
+    inputs:
+      - file: papers.yaml
+        format: yaml
+        list_key: papers
+        id_field: title
+        url_fields: [url, code_url, project_url]
+    settings:
+      timeout: 20
+      workers: 4
+      per_host_delay: 1.0
+      user_agent: "Mozilla/5.0 (...) Chrome/126.0.0.0 Safari/537.36"
+      browser: false
+      fail_on_broken: true
+      fail_early: true
+      report: verify-sources-report.json
+
+Usage:
+    verify_sources.py CONFIG.yaml
+    verify_sources.py CONFIG.json --browser --no-fail --no-fail-early
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+import threading
+import time
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
+from typing import Any
+from urllib.parse import urlparse
+
+DEFAULT_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+)
+
+# ── politeness state (shared across worker threads) ──────────────────────────
+_host_locks: dict[str, threading.Lock] = {}
+_registry_lock = threading.Lock()
+_host_last: dict[str, float] = {}
+
+
+def _host_lock_for(host: str) -> threading.Lock:
+    with _registry_lock:
+        lock = _host_locks.get(host)
+        if lock is None:
+            lock = threading.Lock()
+            _host_locks[host] = lock
+        return lock
+
+
+def _throttle(host: str, per_host_delay: float) -> None:
+    """Serialise requests to one host: never closer than ``per_host_delay`` s."""
+    if per_host_delay <= 0:
+        return
+    lock = _host_lock_for(host)
+    with lock:
+        last = _host_last.get(host, 0.0)
+        wait = per_host_delay - (time.monotonic() - last)
+        if wait > 0:
+            time.sleep(wait)
+        _host_last[host] = time.monotonic()
+
+
+# --------------------------------------------------------------------------- IO
+def load_config(path: str) -> dict:
+    if path.endswith((".yaml", ".yml")):
+        import yaml  # lazy: only needed for YAML configs
+
+        return yaml.safe_load(open(path, encoding="utf-8"))
+    return json.load(open(path, encoding="utf-8"))
+
+
+def read_data(path: str, fmt: str | None) -> Any:
+    fmt = fmt or ("yaml" if path.endswith((".yaml", ".yml")) else "json")
+    if fmt == "yaml":
+        import yaml
+
+        return yaml.safe_load(open(path, encoding="utf-8"))
+    return json.load(open(path, encoding="utf-8"))
+
+
+def _resolve(base: str, path: str) -> str:
+    return path if os.path.isabs(path) else os.path.join(base, path)
+
+
+def iter_entries(inp: dict, base: str):
+    """Yield (id, url, field, source_label) for every URL in an input spec."""
+    fmt = inp.get("format")
+    data = read_data(_resolve(base, inp["file"]), fmt)
+    url_fields = inp.get("url_fields") or ["url"]
+    id_field = inp.get("id_field", "id")
+    label = inp["file"]
+    if inp.get("object_map"):
+        for k, it in data.items():
+            if not isinstance(it, dict):
+                continue
+            for uf in url_fields:
+                u = it.get(uf)
+                if u:
+                    yield (k, u, uf, label)
+    else:
+        items = data[inp["list_key"]] if inp.get("list_key") else data
+        for idx, it in enumerate(items):
+            if not isinstance(it, dict):
+                continue
+            eid = it.get(id_field) or f"{label}#{idx}"
+            for uf in url_fields:
+                u = it.get(uf)
+                if u:
+                    yield (eid, u, uf, label)
+
+
+# --------------------------------------------------------------------- checking
+@dataclass
+class Result:
+    source: str
+    id: str
+    field: str
+    url: str
+    http_status: int | None
+    http_kind: str  # ok | broken | uncertain
+    browser_kind: str | None = None  # ok | broken | botblock | None
+    verdict: str = "botblock"
+    note: str = ""
+
+    def to_dict(self) -> dict:
+        return {
+            "source": self.source,
+            "id": self.id,
+            "field": self.field,
+            "url": self.url,
+            "http_status": self.http_status,
+            "http_kind": self.http_kind,
+            "browser_kind": self.browser_kind,
+            "verdict": self.verdict,
+            "note": self.note,
+        }
+
+
+def _is_dns_error(e: BaseException | None) -> bool:
+    """True, wenn die Ursachenkette einen DNS-Auflösungsfehler enthält.
+
+    requests/urllib3 kapseln DNS-Fehler unterschiedlich tief
+    (gaierror direkt, oder MaxRetryError -> NameResolutionError).
+    """
+    import socket as _socket
+
+    cur: BaseException | None = e
+    seen: set[int] = set()
+    while cur is not None:
+        if id(cur) in seen:
+            return False
+        seen.add(id(cur))
+        if isinstance(cur, _socket.gaierror) or isinstance(cur, _socket.herror):
+            return True
+        if type(cur).__name__ == "NameResolutionError":
+            return True
+        cur = cur.__cause__ if cur.__cause__ is not None else cur.__context__
+    return False
+
+
+def http_check(url: str, timeout: int, ua: str) -> dict:
+    import requests  # lazy: only when actually checking
+
+    last: dict | None = None
+    for attempt in range(3):
+        try:
+            r = requests.get(
+                url, headers={"User-Agent": ua}, timeout=timeout,
+                allow_redirects=True, verify=True,
+            )
+            s = r.status_code
+            if 200 <= s < 400:
+                return {"status": s, "kind": "ok", "note": ""}
+            if s in (401, 403):
+                return {"status": s, "kind": "uncertain", "note": f"bot-block likely ({s})"}
+            if s == 429:  # rate-limited by bulk scan: transient, NOT a dead link
+                ra = r.headers.get("Retry-After")
+                if ra and attempt < 2:
+                    try:
+                        time.sleep(min(float(ra), 30))
+                    except ValueError:
+                        time.sleep(1.5 * (attempt + 1))
+                    continue
+                if attempt < 2:
+                    time.sleep(1.5 * (attempt + 1))
+                    continue
+                return {"status": s, "kind": "uncertain", "note": "rate-limited (429)"}
+            if s in (400, 404, 410):  # definitiv tot
+                return {"status": s, "kind": "broken", "note": f"HTTP {s}"}
+            if s in (401, 403, 405, 406, 418):  # Anti-Bot-Familie (405/406/418 wie 403)
+                return {"status": s, "kind": "uncertain",
+                        "note": f"anti-bot likely ({s})"}
+            if s in (429, 503):  # transient (rate limit / Service Unavailable) -> retry
+                ra = r.headers.get("Retry-After")
+                if ra and attempt < 2:
+                    try:
+                        time.sleep(min(float(ra), 30))
+                    except ValueError:
+                        time.sleep(1.5 * (attempt + 1))
+                    continue
+                if attempt < 2:
+                    time.sleep(1.5 * (attempt + 1))
+                    continue
+                return {"status": s, "kind": "uncertain", "note": f"transient ({s})"}
+            if 500 <= s < 600:  # sonstige Serverfehler -> retry, dann tot
+                if attempt < 2:
+                    time.sleep(1.5 * (attempt + 1))
+                    continue
+                return {"status": s, "kind": "broken", "note": f"server error {s}"}
+            return {"status": s, "kind": "uncertain",  # nicht-standard Codes (z. B. 468)
+                    "note": f"HTTP {s} (nonstandard)"}
+        except requests.exceptions.SSLError:
+            return {"status": None, "kind": "uncertain", "note": "SSL error"}
+        except requests.exceptions.Timeout:
+            return {"status": None, "kind": "uncertain", "note": "timeout"}
+        except requests.exceptions.ConnectionError as e:
+            # DNS-Fehler = Domain existiert nicht mehr -> definitiv tot.
+            # Andere Verbindungsabbrüche (reset/refused bei Bulk-Scans von
+            # z. B. doi.org/dblp aus CI-IPs) sind mehrdeutig: Host könnte
+            # Throttlen. Mehrdeutig => retry, dann UNCERTAIN (nie BROKEN).
+            if _is_dns_error(e):
+                return {"status": None, "kind": "broken",
+                        "note": "DNS: domain does not resolve"}
+            if attempt < 2:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            return {"status": None, "kind": "uncertain",
+                    "note": "connection dropped after retries (host may throttle bulk scans)"}
+        except Exception as e:  # noqa: BLE001 - classify everything else as uncertain
+            return {"status": None, "kind": "uncertain", "note": type(e).__name__}
+    return last or {"status": None, "kind": "uncertain", "note": "unknown"}
+
+
+def browser_check(url: str, ua: str) -> dict:
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return {"kind": "uncertain", "note": "playwright not installed"}
+    try:
+        with sync_playwright() as p:
+            b = p.chromium.launch(args=["--no-sandbox"])
+            pg = b.new_page(user_agent=ua)
+            r = pg.goto(url, wait_until="domcontentloaded", timeout=60000)
+            pg.wait_for_timeout(2000)
+            s = r.status if r else None
+            b.close()
+        if s and 200 <= s < 400:
+            return {"kind": "ok", "note": f"browser {s}"}
+        if s in (404, 410):
+            return {"kind": "broken", "note": f"browser {s}"}
+        if s in (401, 403):
+            return {"kind": "botblock", "note": f"browser {s} (valid official URL)"}
+        return {"kind": "broken", "note": f"browser {s}"}
+    except Exception as e:  # noqa: BLE001
+        return {"kind": "uncertain", "note": f"browser err: {type(e).__name__}"}
+
+
+def resolve_verdict(http_kind: str, browser_kind: str | None) -> str:
+    if http_kind == "ok":
+        return "ok"
+    if http_kind == "broken":
+        return "broken"
+    # http_kind == "uncertain"
+    if browser_kind in ("ok", "broken", "botblock"):
+        return browser_kind
+    return "botblock"
+
+
+# ------------------------------------------------------------------------- run
+def run(config: dict, cfg_path: str = "") -> tuple[Counter, list[Result], int]:
+    base = os.path.dirname(os.path.abspath(cfg_path)) if cfg_path else os.getcwd()
+    settings = config.get("settings", {})
+    timeout = int(settings.get("timeout", 20))
+    workers = int(settings.get("workers", 4))
+    per_host_delay = float(settings.get("per_host_delay", 1.0))
+    ua = settings.get("user_agent", DEFAULT_UA)
+    use_browser = bool(settings.get("browser", False))
+    fail = bool(settings.get("fail_on_broken", True))
+    fail_early = bool(settings.get("fail_early", True))
+
+    items = [i for inp in config.get("inputs", []) for i in iter_entries(inp, base)]
+
+    def check_one(item):
+        eid, url, field, label = item
+        _throttle(urlparse(url).netloc, per_host_delay)
+        h = http_check(url, timeout, ua)
+        b = None
+        if h["kind"] == "uncertain":
+            if use_browser:
+                b = browser_check(url, ua)
+            else:
+                b = {"kind": "botblock",
+                     "note": "no browser recheck; 401/403/timeout -> bot-block (warn)"}
+        verdict = resolve_verdict(h["kind"], (b or {}).get("kind"))
+        return Result(
+            source=label, id=eid, field=field, url=url,
+            http_status=h["status"], http_kind=h["kind"],
+            browser_kind=(b or {}).get("kind"),
+            verdict=verdict, note=(b or {}).get("note") or h["note"],
+        )
+
+    results: list[Result] = []
+    broken = False
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futures = {ex.submit(check_one, it): it for it in items}
+        for fut in as_completed(futures):
+            res = fut.result()
+            results.append(res)
+            if fail and res.verdict == "broken":
+                broken = True
+                if fail_early:  # abort remaining checks; stop hammering
+                    for f in futures:
+                        f.cancel()
+                    break
+
+    totals = Counter(r.verdict for r in results)
+    status = 0 if not broken else 1
+    return totals, results, status
+
+
+def render_summary(totals: Counter, results: list[Result]) -> str:
+    lines = [
+        "## verify-sources report",
+        "",
+        f"- OK: {totals.get('ok', 0)}  "
+        f"bot-block (warn): {totals.get('botblock', 0)}  "
+        f"**BROKEN: {totals.get('broken', 0)}**",
+        "",
+    ]
+    broken = [r for r in results if r.verdict == "broken"]
+    if broken:
+        lines.append("### Broken links")
+        for r in broken:
+            lines.append(f"- [{r.source}] `{r.id}` ({r.field}): {r.url} — {r.note}")
+        lines.append("")
+    bot = [r for r in results if r.verdict == "botblock"]
+    if bot:
+        lines.append(f"### Bot-blocked / unverified ({len(bot)}) — valid URLs, script-blocked")
+        for r in bot[:25]:
+            lines.append(f"- [{r.source}] `{r.id}` ({r.field}): {r.url}")
+        if len(bot) > 25:
+            lines.append(f"- … and {len(bot) - 25} more")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="Repo-agnostic link-liveness verifier.")
+    ap.add_argument("config", help="verify-sources config (JSON or YAML)")
+    ap.add_argument("--browser", dest="browser", action="store_true", default=None,
+                    help="enable Playwright recheck of uncertain URLs")
+    ap.add_argument("--no-browser", dest="browser", action="store_false")
+    ap.add_argument("--fail", dest="fail", action="store_true", default=None)
+    ap.add_argument("--no-fail", dest="fail", action="store_false")
+    ap.add_argument("--fail-early", dest="fail_early", action="store_true", default=None,
+                    help="abort on first BROKEN link (default)")
+    ap.add_argument("--no-fail-early", dest="fail_early", action="store_false")
+    ap.add_argument("--report", default=None, help="override report output path")
+    args = ap.parse_args(argv)
+
+    config = load_config(args.config)
+    config.setdefault("settings", {})
+    if args.browser is not None:
+        config["settings"]["browser"] = args.browser
+    if args.fail is not None:
+        config["settings"]["fail_on_broken"] = args.fail
+    if args.fail_early is not None:
+        config["settings"]["fail_early"] = args.fail_early
+    if args.report:
+        config["settings"]["report"] = args.report
+
+    totals, results, status = run(config, args.config)
+
+    summary = render_summary(totals, results)
+    print(summary)
+
+    report_path = config["settings"].get("report")
+    if report_path:
+        out = {
+            "totals": dict(totals),
+            "results": [r.to_dict() for r in results],
+        }
+        with open(report_path, "w", encoding="utf-8") as fh:
+            json.dump(out, fh, indent=2, ensure_ascii=False)
+            fh.write("\n")
+        print(f"\nReport written to {report_path}")
+
+    return status
+
+
+if __name__ == "__main__":
+    sys.exit(main())
