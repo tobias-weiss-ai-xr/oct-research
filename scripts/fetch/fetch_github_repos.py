@@ -58,26 +58,50 @@ def load_github_queries(cfg):
         q = item.get("query", "")
         if not q:
             continue
-        queries.append({
+        entry = {
             "query": q,
             "category": item.get("category", ""),
             "subcategory_hint": item.get("subcategory_hint", ""),
-            "min_stars": item.get("min_stars"),
-        })
+        }
+        # Only carry min_stars when explicitly set, so the CLI default applies
+        # when the per-query override is absent.
+        if item.get("min_stars") is not None:
+            entry["min_stars"] = item["min_stars"]
+        queries.append(entry)
     return queries
 
 
 # ── GitHub API helpers ────────────────────────────────────────────────────
 
+def encode_gh_query(query):
+    """Encode a GitHub search query for use in a `gh api` URL path.
+
+    Raw spaces (and other query syntax we let users write, like ``stars:>5``
+    or quoted phrases) must be percent-/plus-encoded, otherwise `gh api`
+    hangs waiting on the literal space in the URL.  ``+`` in the input is
+    already GitHub's space separator (appended by callers such as
+    ``+stars:>5``), so it is left untouched.
+    """
+    return (
+        query.replace(" ", "+")
+        .replace(">", "%3E")
+        .replace("\"", "%22")
+        .replace(",", "%2C")
+    )
+
+
 def gh_search_repos(query, sort="stars", order="desc", per_page=30, page=1):
     """Search GitHub repos via ``gh api``.  Returns (items, total_count)."""
-    cmd = [
-        "gh", "api", "--method", "GET",
-        f"search/repositories?q={query}&sort={sort}&order={order}"
-        f"&per_page={per_page}&page={page}",
-    ]
+    url = (
+        f"search/repositories?q={encode_gh_query(query)}"
+        f"&sort={sort}&order={order}&per_page={per_page}&page={page}"
+    )
+    cmd = ["gh", "api", "--method", "GET", url]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(
+            cmd, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=30,
+        )
         if result.returncode != 0:
             err = result.stderr.strip()
             if "422" in err or "rate limit" in err.lower():

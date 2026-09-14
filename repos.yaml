@@ -1,0 +1,215 @@
+repos:
+- name: Enet4/dicom-rs
+  url: https://github.com/Enet4/dicom-rs
+  description: Rust implementation of the DICOM standard
+  category: method
+  subcategory: other
+  stars: 561
+  forks: 155
+  language: Rust
+  topics:
+  - dicom
+  - dicom-standard
+  - hacktoberfest
+  - medical-imaging
+  pushed_at: '2026-09-14'
+  created_at: '2014-05-15'
+  open_issues: 73
+  license: Apache-2.0
+- name: Enet4/nifti-rs
+  url: https://github.com/Enet4/nifti-rs
+  description: Rust implementation of the NIfTI-1 format
+  category: method
+  subcategory: other
+  stars: 57
+  forks: 11
+  language: Rust
+  topics:
+  - hacktoberfest
+  - medical-imaging
+  - neuroimaging
+  - nifti
+  pushed_at: '2026-09-11'
+  created_at: '2018-06-07'
+  open_issues: 4
+  license: Apache-2.0
+- name: UMEssen/DICOM-RST
+  url: https://github.com/UMEssen/DICOM-RST
+  description: DICOMweb-compatible gateway server with DIMSE and S3 implementations
+  category: method
+  subcategory: other
+  stars: 27
+  forks: 3
+  language: Rust
+  topics:
+  - dicom
+  - healthcare
+  - medical-imaging
+  - omi
+  pushed_at: '2026-09-14'
+  created_at: '2024-12-03'
+  open_issues: 0
+  license: MIT
+- name: knopkem/dicom-toolkit-rs
+  url: https://github.com/knopkem/dicom-toolkit-rs
+  description: A pure-Rust port of DCMTK 3.7.0 — a comprehensive DICOM medical imaging toolkit.
+  stars: 13
+  forks: 5
+  language: Rust
+  topics:
+  - dicom
+  - dimse
+  - scp
+  - scu
+  pushed_at: '2026-03-20'
+  created_at: '2026-03-15'
+  open_issues: 3
+  license: Apache-2.0
+- name: 0John-Hong0/dicron
+  url: https://github.com/0John-Hong0/dicron
+  description: A simple native DICOM viewer built with Rust and egui
+  stars: 14
+  forks: 0
+  language: Rust
+  topics:
+  - dicom
+  - dicom-viewer
+  - rust
+  pushed_at: '2026-09-09'
+  created_at: '2026-07-06'
+  open_issues: 0
+  license: GPL-3.0
+- name: eugenehp/dcm2niix-rs
+  url: https://github.com/eugenehp/dcm2niix-rs
+  description: 'Pure-Rust rewrite of dcm2niix: DICOM → NIfTI (+ BIDS sidecars)'
+  stars: 1
+  forks: 0
+  language: Rust
+  topics:
+  - bids
+  - dcm2niix
+  - dicom
+  - medical-imaging
+  - mri
+  - neuroimaging
+  - nifti
+  - rust
+  pushed_at: '2026-08-24'
+  created_at: '2026-08-23'
+  open_issues: 0
+  license: NOASSERTION
+- name: childmindresearch/headjack
+  url: https://github.com/childmindresearch/headjack
+  description: Interactive NIfTI Viewer for the Terminal
+  category: application
+  subcategory: neuro
+  stars: 13
+  forks: 1
+  language: Rust
+  topics: []
+  pushed_at: '2025-09-09'
+  created_at: '2024-04-22'
+  open_issues: 0
+  license: Apache-2.0
+- name: liamchalcroft/med-rs
+  url: https://github.com/liamchalcroft/med-rs
+  description: Super-fast NifTI I/O in Rust for MONAI/PyTorch/JAX
+  category: method
+  subcategory: dl
+  stars: 10
+  forks: 0
+  language: Rust
+  topics: []
+  pushed_at: '2026-07-02'
+  created_at: '2024-12-10'
+  open_issues: 0
+  license: ''
+- name: csheaff/pa-tomography-xu-wang
+  url: https://github.com/csheaff/pa-tomography-xu-wang
+  description: Photoacoustic tomography as proposed by Xu and Wang in Python and Rust.
+  category: method
+  subcategory: fundamentals
+  stars: 17
+  forks: 5
+  language: Rust
+  topics:
+  - acoustics
+  - optoacoustics
+  - photoacoustics
+  - tomography
+  pushed_at: '2024-09-10'
+  created_at: '2018-11-26'
+  open_issues: 0
+  license: Apache-2.0
+- name: cool-japan/oxiphoton
+  url: https://github.com/cool-japan/oxiphoton
+  description: OxiPhoton provides electromagnetic wave propagation, optical device design, and photonics
+    simulation in pure Rust. It implements Transfer Matrix Method, materials modeling, and type-safe optical
+    unit systems as part of the cool-japan ecosystem.
+  stars: 12
+  forks: 2
+  language: Rust
+  topics:
+  - cooljapan
+  - photon
+  - photonics
+  - rust
+  - rust-crate
+  - rust-lang
+  pushed_at: '2026-08-06'
+  created_at: '2026-03-08'
+  open_issues: 0
+  license: NOASSERTION
+- name: marksgraham/OCT-Converter
+  url: https://github.com/marksgraham/OCT-Converter
+  description: Tools for extracting the raw optical coherence tomography (OCT) and fundus data from proprietary
+    file formats
+  category: application
+  subcategory: ophthal
+  stars: 265
+  forks: 75
+  language: Python
+  topics: []
+  pushed_at: '2025-11-19'
+  created_at: '2019-01-31'
+  open_issues: 11
+  license: Apache-2.0
+- name: baochenfu/OCT-Bench
+  url: https://github.com/baochenfu/OCT-Bench
+  description: OCT benchmark datasets and evaluation
+  category: evaluation
+  subcategory: dataset
+  stars: 200
+  forks: 16
+  language: Jupyter Notebook
+  topics: []
+  pushed_at: '2024-07-17'
+  created_at: '2023-03-12'
+  open_issues: 0
+  license: ''
+- name: spectralcode/OCTproZ
+  url: https://github.com/spectralcode/OCTproZ
+  description: OCTproZ is an open source software for optical coherence tomography processing and visualization.
+  category: application
+  subcategory: other
+  stars: 146
+  forks: 63
+  language: C++
+  topics: []
+  pushed_at: '2025-06-13'
+  created_at: '2021-11-15'
+  open_issues: 6
+  license: GPL-3.0
+- name: iMED-Lab/OCTA-Net-OCTA-Vessel-Segmentation-Network
+  url: https://github.com/iMED-Lab/OCTA-Net-OCTA-Vessel-Segmentation-Network
+  description: 'OCTA-Net: a deep learning framework for OCTA vessel segmentation'
+  category: method
+  subcategory: octa
+  stars: 131
+  forks: 46
+  language: Python
+  topics: []
+  pushed_at: '2021-08-09'
+  created_at: '2018-10-26'
+  open_issues: 0
+  license: ''

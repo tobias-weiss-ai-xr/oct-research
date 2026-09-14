@@ -89,6 +89,43 @@ openalex_queries:
   - category: application
     query: "optical coherence tomography cardiology coronary"
 
+# ── Relevance signals for repo discovery (repo_signals) ──────────────────────
+repo_signals:
+  - medical imaging
+  - dicom
+  - nifti
+  - tomography
+  - microscopy
+  - photonics
+  - optics
+  - coherence
+  - interferometry
+  - retina
+  - ophthalmology
+
+# ── GitHub repo discovery (fetch_github_repos.py) ─────────────────────────────
+# Query syntax: https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+github_queries:
+  - query: 'optical coherence tomography language:Rust'
+    category: application
+    subcategory_hint: other
+  - query: 'optical coherence tomography in:name,description,readme'
+    category: application
+  - query: 'dicom language:Rust'
+    category: method
+    subcategory_hint: other
+    min_stars: 20
+  - query: 'nifti language:Rust'
+    category: method
+    subcategory_hint: other
+  - query: 'tomography language:Rust'
+    category: method
+  - query: 'microscopy language:Rust'
+    category: method
+  - query: 'retina OCT deep learning in:name,description'
+    category: method
+    subcategory_hint: dl
+
 # ── Trend analysis keywords ──────────────────────────────────────────────────
 trend_keywords:
   - "deep learning"
