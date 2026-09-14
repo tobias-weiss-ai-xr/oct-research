@@ -2,169 +2,462 @@
  "categories": [
   {
    "id": "application",
-   "name": "Applications",
-   "count": 1,
+   "name": "Klinische & technische Anwendungen",
+   "count": 16,
    "trajectory": {
-    "2025": 1
+    "2018": 3,
+    "2021": 1,
+    "2022": 1,
+    "2023": 2,
+    "2024": 3,
+    "2025": 4,
+    "2026": 2
    },
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 1,
-    "recent": 1,
-    "prior": 0,
-    "growth_pct": null,
-    "recent_share": 1.0,
-    "papers_per_month": 0.1,
-    "score": 100.0
+    "total": 16,
+    "recent": 3,
+    "prior": 5,
+    "growth_pct": -40.0,
+    "recent_share": 0.188,
+    "papers_per_month": 0.2,
+    "score": -21.2
    }
   },
   {
    "id": "evaluation",
-   "name": "Evaluation & Benchmarks",
-   "count": 1,
+   "name": "Evaluation, Datensätze & Benchmarks",
+   "count": 2,
    "trajectory": {
-    "2025": 1
+    "2022": 1,
+    "2023": 1
    },
    "momentum": {
     "id": "evaluation",
     "name": "Evaluation",
-    "total": 1,
-    "recent": 1,
+    "total": 2,
+    "recent": 0,
     "prior": 0,
     "growth_pct": null,
-    "recent_share": 1.0,
-    "papers_per_month": 0.1,
-    "score": 100.0
+    "recent_share": 0.0,
+    "papers_per_month": 0.0,
+    "score": 0.0
    }
   },
   {
    "id": "method",
-   "name": "Methods & Architectures",
-   "count": 1,
+   "name": "Methoden & Technikvarianten",
+   "count": 21,
    "trajectory": {
-    "2026": 1
+    "1991": 1,
+    "2003": 1,
+    "2020": 1,
+    "2021": 2,
+    "2022": 3,
+    "2023": 4,
+    "2024": 3,
+    "2025": 2,
+    "2026": 4
    },
    "momentum": {
     "id": "method",
     "name": "Method",
-    "total": 1,
-    "recent": 1,
-    "prior": 0,
-    "growth_pct": null,
-    "recent_share": 1.0,
-    "papers_per_month": 0.1,
-    "score": 100.0
+    "total": 21,
+    "recent": 5,
+    "prior": 1,
+    "growth_pct": 400.0,
+    "recent_share": 0.238,
+    "papers_per_month": 0.4,
+    "score": 423.8
    }
   },
   {
    "id": "survey",
-   "name": "Surveys & Taxonomies",
-   "count": 2,
+   "name": "Surveys & Übersichtsarbeiten",
+   "count": 4,
    "trajectory": {
-    "2025": 1,
-    "2026": 1
+    "2003": 1,
+    "2017": 1,
+    "2021": 1,
+    "2023": 1
    },
    "momentum": {
     "id": "survey",
     "name": "Survey",
-    "total": 2,
-    "recent": 1,
-    "prior": 1,
-    "growth_pct": 0.0,
-    "recent_share": 0.5,
-    "papers_per_month": 0.1,
-    "score": 50.0
+    "total": 4,
+    "recent": 0,
+    "prior": 0,
+    "growth_pct": null,
+    "recent_share": 0.0,
+    "papers_per_month": 0.0,
+    "score": 0.0
    }
   }
  ],
  "subcategories": [
   {
-   "id": "agentic",
-   "name": "Agentic",
-   "count": 1
+   "id": "cardio",
+   "name": "Kardiologie",
+   "count": 4
   },
   {
-   "id": "hybrid",
-   "name": "Hybrid",
+   "id": "dataset",
+   "name": "Datensätze & Benchmarks",
    "count": 2
   },
   {
-   "id": "non-agentic",
-   "name": "Non-Agentic",
+   "id": "derm",
+   "name": "Dermatologie",
+   "count": 2
+  },
+  {
+   "id": "dl",
+   "name": "Deep Learning & KI-Bildanalyse",
+   "count": 10
+  },
+  {
+   "id": "fundamentals",
+   "name": "Grundlagen & Interferometrie",
+   "count": 2
+  },
+  {
+   "id": "neuro",
+   "name": "Neuro & HNO",
+   "count": 1
+  },
+  {
+   "id": "octa",
+   "name": "OCT-Angiographie (OCTA)",
+   "count": 4
+  },
+  {
+   "id": "ophthal",
+   "name": "Ophthalmologie",
+   "count": 6
+  },
+  {
+   "id": "other",
+   "name": "Weitere Anwendungen",
+   "count": 3
+  },
+  {
+   "id": "ps-oct",
+   "name": "Polarisations-sensitive OCT (PS-OCT)",
+   "count": 1
+  },
+  {
+   "id": "review",
+   "name": "Übersichtsarbeiten",
+   "count": 4
+  },
+  {
+   "id": "sd-oct",
+   "name": "Spektraldomänen-OCT (SD-OCT)",
+   "count": 2
+  },
+  {
+   "id": "ss-oct",
+   "name": "Swept-Source-OCT (SS-OCT)",
    "count": 2
   }
  ],
  "timeline": [
   [
-   "2025-05",
-   "survey",
-   "non-agentic"
+   "1991-11",
+   "method",
+   "fundamentals"
   ],
   [
-   "2025-08",
+   "2003-01",
+   "survey",
+   "review"
+  ],
+  [
+   "2003-09",
+   "method",
+   "sd-oct"
+  ],
+  [
+   "2017-12",
+   "survey",
+   "review"
+  ],
+  [
+   "2018-02",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2018-08",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2018-08",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2020-07",
+   "method",
+   "octa"
+  ],
+  [
+   "2021-03",
+   "method",
+   "ss-oct"
+  ],
+  [
+   "2021-08",
+   "application",
+   "other"
+  ],
+  [
+   "2021-09",
+   "survey",
+   "review"
+  ],
+  [
+   "2021-11",
+   "method",
+   "dl"
+  ],
+  [
+   "2022-01",
+   "method",
+   "dl"
+  ],
+  [
+   "2022-02",
    "evaluation",
-   "hybrid"
+   "dataset"
+  ],
+  [
+   "2022-04",
+   "method",
+   "ss-oct"
+  ],
+  [
+   "2022-11",
+   "application",
+   "cardio"
+  ],
+  [
+   "2022-12",
+   "method",
+   "octa"
+  ],
+  [
+   "2023-02",
+   "method",
+   "dl"
+  ],
+  [
+   "2023-02",
+   "method",
+   "octa"
+  ],
+  [
+   "2023-05",
+   "method",
+   "dl"
+  ],
+  [
+   "2023-06",
+   "application",
+   "derm"
+  ],
+  [
+   "2023-07",
+   "survey",
+   "review"
+  ],
+  [
+   "2023-11",
+   "application",
+   "cardio"
+  ],
+  [
+   "2023-11",
+   "method",
+   "dl"
+  ],
+  [
+   "2023-12",
+   "evaluation",
+   "dataset"
+  ],
+  [
+   "2024-02",
+   "method",
+   "dl"
+  ],
+  [
+   "2024-05",
+   "method",
+   "dl"
+  ],
+  [
+   "2024-06",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2024-07",
+   "method",
+   "dl"
+  ],
+  [
+   "2024-09",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2024-11",
+   "application",
+   "ophthal"
+  ],
+  [
+   "2025-03",
+   "application",
+   "cardio"
+  ],
+  [
+   "2025-04",
+   "application",
+   "derm"
+  ],
+  [
+   "2025-05",
+   "application",
+   "neuro"
+  ],
+  [
+   "2025-06",
+   "method",
+   "dl"
+  ],
+  [
+   "2025-10",
+   "application",
+   "other"
   ],
   [
    "2025-11",
-   "application",
-   "non-agentic"
-  ],
-  [
-   "2026-01",
-   "survey",
-   "hybrid"
-  ],
-  [
-   "2026-03",
    "method",
-   "agentic"
+   "ps-oct"
+  ],
+  [
+   "2026-02",
+   "application",
+   "cardio"
+  ],
+  [
+   "2026-02",
+   "method",
+   "dl"
+  ],
+  [
+   "2026-08",
+   "application",
+   "other"
+  ],
+  [
+   "2026-08",
+   "method",
+   "fundamentals"
+  ],
+  [
+   "2026-08",
+   "method",
+   "octa"
+  ],
+  [
+   "2026-08",
+   "method",
+   "sd-oct"
   ]
  ],
- "venues": [],
+ "venues": [
+  {
+   "name": "Science",
+   "papers": 1
+  },
+  {
+   "name": "Optics Express",
+   "papers": 1
+  },
+  {
+   "name": "Nature Medicine",
+   "papers": 1
+  },
+  {
+   "name": "Cell",
+   "papers": 1
+  },
+  {
+   "name": "npj Digital Medicine",
+   "papers": 1
+  },
+  {
+   "name": "Reports on Progress in Physics",
+   "papers": 1
+  },
+  {
+   "name": "Progress in Retinal and Eye Research",
+   "papers": 1
+  }
+ ],
  "keyword_bursts": [
   {
-   "keyword": "benchmark",
+   "keyword": "polarization",
    "recent": 1,
    "total": 1,
-   "burst_score": 1.25,
-   "recent_share": 0.25
+   "burst_score": 5.38,
+   "recent_share": 0.125
   },
   {
-   "keyword": "evaluation",
-   "recent": 1,
-   "total": 1,
-   "burst_score": 1.25,
-   "recent_share": 0.25
-  },
-  {
-   "keyword": "method",
-   "recent": 1,
-   "total": 1,
-   "burst_score": 1.25,
-   "recent_share": 0.25
-  },
-  {
-   "keyword": "application",
-   "recent": 1,
-   "total": 1,
-   "burst_score": 1.25,
-   "recent_share": 0.25
-  },
-  {
-   "keyword": "survey",
+   "keyword": "foundation model",
    "recent": 1,
    "total": 2,
-   "burst_score": 0.62,
+   "burst_score": 2.69,
+   "recent_share": 0.125
+  },
+  {
+   "keyword": "classification",
+   "recent": 1,
+   "total": 5,
+   "burst_score": 1.07,
+   "recent_share": 0.125
+  },
+  {
+   "keyword": "coronary",
+   "recent": 1,
+   "total": 5,
+   "burst_score": 1.07,
+   "recent_share": 0.125
+  },
+  {
+   "keyword": "deep learning",
+   "recent": 2,
+   "total": 16,
+   "burst_score": 0.67,
    "recent_share": 0.25
   },
   {
-   "keyword": "analysis",
+   "keyword": "segmentation",
    "recent": 1,
-   "total": 2,
-   "burst_score": 0.62,
-   "recent_share": 0.25
+   "total": 11,
+   "burst_score": 0.49,
+   "recent_share": 0.125
+  },
+  {
+   "keyword": "retina",
+   "recent": 1,
+   "total": 15,
+   "burst_score": 0.36,
+   "recent_share": 0.125
   }
  ]
 }

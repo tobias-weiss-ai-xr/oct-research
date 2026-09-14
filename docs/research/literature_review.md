@@ -1,7 +1,7 @@
 # Literature Review
 
-**Generated:** 2026-08-25  
-**Corpus:** 5 papers across 4 categories
+**Generated:** 2026-09-14  
+**Corpus:** 43 papers across 4 categories
 
 > Synthesis of the corpus. Category insights are grounded in title/abstract analysis of the papers themselves.
 
@@ -11,13 +11,13 @@
 
 | Rank | Category | Papers |
 |------|----------|--------|
-| 1 | Surveys & Taxonomies | 2 |
-| 2 | Methods & Architectures | 1 |
-| 3 | Applications | 1 |
-| 4 | Evaluation & Benchmarks | 1 |
+| 1 | Methoden & Technikvarianten | 21 |
+| 2 | Klinische & technische Anwendungen | 16 |
+| 3 | Surveys & Übersichtsarbeiten | 4 |
+| 4 | Evaluation, Datensätze & Benchmarks | 2 |
 
-**Time span:** 2025–2026 (median year 2026)
-**Dominant aspects:** Hybrid (2), Non-Agentic (2), Agentic (1)
+**Time span:** 1991–2026 (median year 2021)
+**Dominant aspects:** Deep Learning & KI-Bildanalyse (10), Ophthalmologie (6), OCT-Angiographie (OCTA) (4)
 
 ---
 
@@ -25,10 +25,10 @@
 
 | Category | Total | Last 12m | Prior 12m | Growth | 12-m share | Papers/mo |
 |----------|------:|---------:|----------:|-------:|----------:|----------:|
-| Application | 1 | 1 | 0 | — | 100% | 0.1 |
-| Evaluation | 1 | 1 | 0 | — | 100% | 0.1 |
-| Method | 1 | 1 | 0 | — | 100% | 0.1 |
-| Survey | 2 | 1 | 1 | +0% | 50% | 0.1 |
+| Method | 21 | 5 | 1 | +400% | 24% | 0.4 |
+| Evaluation | 2 | 0 | 0 | — | 0% | 0.0 |
+| Survey | 4 | 0 | 0 | — | 0% | 0.0 |
+| Application | 16 | 3 | 5 | -40% | 19% | 0.2 |
 
 ---
 
@@ -36,55 +36,64 @@
 
 | Cell | Papers |
 |------|--------:|
-| `survey/hybrid` | 1 |
-| `method/agentic` | 1 |
-| `application/non-agentic` | 1 |
-| `evaluation/hybrid` | 1 |
-| `survey/non-agentic` | 1 |
+| `method/ps-oct` | 1 |
+| `application/neuro` | 1 |
+| `method/fundamentals` | 2 |
+| `method/sd-oct` | 2 |
+| `method/ss-oct` | 2 |
+| `application/derm` | 2 |
+| `evaluation/dataset` | 2 |
+| `application/other` | 3 |
 
 ---
 
 
 ## Category Insights
 
-### Surveys & Taxonomies (`survey`)
+### Methoden & Technikvarianten (`method`)
+
+**Corpus size:** 21 papers
+
+**Recent papers:**
+
+- [2026-08] Seeded SU(1,1) interferometry for Fourier-domain optical coherence tomography — https://arxiv.org/abs/2608.18750
+- [2026-08] Bridging the gap: Using deep learning to reconstruct noise-reduced super-resolved OCT images fr — https://arxiv.org/abs/2608.11989
+- [2026-08] In Defense of OCTA: The Reconstruction-Utility Gap in OCT-to-OCTA Synthesis — https://arxiv.org/abs/2608.15626
+
+---
+
+### Klinische & technische Anwendungen (`application`)
+
+**Corpus size:** 16 papers
+
+**Recent papers:**
+
+- [2026-08] Time-resolved sedimentation of dense potato-starch suspensions measured by optical coherence to — https://arxiv.org/abs/2608.15067
+- [2026-02] Intracoronary Optical Coherence Tomography Image Processing and Vessel Classification Using Mac — https://arxiv.org/abs/2602.15579
+- [2025-10] Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep lea — https://arxiv.org/abs/2510.00745
+
+---
+
+### Surveys & Übersichtsarbeiten (`survey`)
+
+**Corpus size:** 4 papers
+
+**Recent papers:**
+
+- [2023-07] Deep Learning and Computer Vision for Glaucoma Detection: A Review — https://arxiv.org/abs/2307.16528
+- [2021-09] Automatic Segmentation of the Optic Nerve Head Region in Optical Coherence Tomography : A Metho — https://arxiv.org/abs/2109.02322
+- [2017-12] Optical coherence tomography angiography — https://doi.org/10.1016/j.preteyeres.2017.11.003
+
+---
+
+### Evaluation, Datensätze & Benchmarks (`evaluation`)
 
 **Corpus size:** 2 papers
 
 **Recent papers:**
 
-- [2026-01] Example Paper 1: A Foundational Survey of Your Topic — https://arxiv.org/abs/2601.00001
-- [2025-05] Example Paper 5: A Survey of Your Topic Across Domains — https://arxiv.org/abs/2505.00005
-
----
-
-### Methods & Architectures (`method`)
-
-**Corpus size:** 1 papers
-
-**Recent papers:**
-
-- [2026-03] Example Paper 2: An Agentic Method for Your Topic — https://arxiv.org/abs/2603.00002
-
----
-
-### Applications (`application`)
-
-**Corpus size:** 1 papers
-
-**Recent papers:**
-
-- [2025-11] Example Paper 3: Application Study in Your Domain — https://arxiv.org/abs/2511.00003
-
----
-
-### Evaluation & Benchmarks (`evaluation`)
-
-**Corpus size:** 1 papers
-
-**Recent papers:**
-
-- [2025-08] Example Paper 4: An Evaluation Benchmark for Your Topic — https://arxiv.org/abs/2508.00004
+- [2023-12] OCTDL: Optical Coherence Tomography Dataset for Image-Based Deep Learning Methods — https://arxiv.org/abs/2312.08255
+- [2022-02] Inflation of test accuracy due to data leakage in deep learning -based classification of OCT im — https://arxiv.org/abs/2202.12267
 
 ---
 

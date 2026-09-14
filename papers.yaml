@@ -1,70 +1,634 @@
 papers:
-- title: 'Example Paper 1: A Foundational Survey of Your Topic'
-  date: 2026-01
-  url: https://arxiv.org/abs/2601.00001
-  category: survey
-  subcategory: hybrid
-  authors:
-  - Example Author A
-  - Example Author B
-  venue: ''
-  code_url: ''
-  project_url: ''
-  abstract: This is a placeholder abstract. Replace it with a real summary of the
-    paper. The corpus pipeline uses title/abstract text for trend analysis, so keep
-    abstracts accurate.
-  tags: []
-- title: 'Example Paper 2: An Agentic Method for Your Topic'
-  date: 2026-03
-  url: https://arxiv.org/abs/2603.00002
+- title: Optical Coherence Tomography
+  date: 1991-11
+  url: https://doi.org/10.1126/science.1957169
   category: method
-  subcategory: agentic
+  subcategory: fundamentals
   authors:
-  - Example Author C
-  venue: ''
-  code_url: ''
-  project_url: ''
-  abstract: Another placeholder abstract. Papers are grouped by (category, subcategory)
-    and sorted by year in the generated README.
-  tags: []
-- title: 'Example Paper 3: Application Study in Your Domain'
+  - David Huang
+  - Eric A. Swanson
+  - Charles P. Lin
+  - Joel S. Schuman
+  - William G. Stinson
+  - Warren Chang
+  - Michael R. Hee
+  - Thomas Flotte
+  venue: Science
+  abstract: A technique called optical coherence tomography (OCT) has been developed for noninvasive cross-sectional
+    imaging in biological systems. OCT uses low-coherence interferometry to produce a two-dimensional
+    image of optical scattering from internal tissue microstructures in a way that is analogous to ultrasonic
+    pulse-echo imaging. OCT has longitudinal and lateral spatial resolutions of a few micrometers and
+    can detect reflected signals as small as approximately 10(-10) of the incident optical power. Tomographic
+    imaging is demonstrated in vitro in the peripapillary area of the retina and in the coronary artery,
+    two clinically relevant examples that are representative of transparent and turbid media, respectively.
+- title: Sensitivity advantage of swept source and Fourier domain optical coherence tomography
+  date: 2003-09
+  url: https://doi.org/10.1364/OE.11.002183
+  category: method
+  subcategory: sd-oct
+  authors:
+  - Michael A. Choma
+  - Marinko V. Šarunic
+  - Changhuei Yang
+  - Joseph A. Izatt
+  venue: Optics Express
+  abstract: 'We present theoretical and experimental results which demonstrate the superior sensitivity
+    of swept source (SS) and Fourier domain (FD) optical coherence tomography (OCT) techniques over the
+    conventional time domain (TD) approach. We show that SS- and FD-OCT have equivalent expressions for
+    system signal-to-noise ratio which result in a typical sensitivity advantage of 20-30dB over TD-OCT.
+    Experimental verification is provided using two novel spectral discrimination (SD) OCT systems: a
+    differential fiber-based 800nm FD-OCT system which employs deep-well photodiode arrays, and a differential
+    1300nm SS-OCT system based on a swept laser with an 87nm tuning range.'
+- title: Seeded SU(1,1) interferometry for Fourier-domain optical coherence tomography
+  date: 2026-08
+  url: https://arxiv.org/abs/2608.18750
+  category: method
+  subcategory: fundamentals
+  authors:
+  - Alejandra A. Padilla
+  - Valentina Gacha
+  - Daniel F. Urrego
+  - Juan P. Torres
+  abstract: ''
+- title: 'ADC-Net: An Open-Source Deep Learning Network for Automated Dispersion Compensation in Optical
+    Coherence Tomography'
+  date: 2022-01
+  url: https://arxiv.org/abs/2201.12625
+  category: method
+  subcategory: dl
+  authors:
+  - Shaiban Ahmed
+  - David Le
+  - Taeyoon Son
+  - Tobiloba Adejumo
+  - Xincheng Yao
+  - Department of Biomedical Engineering
+  - University of Illinois at Chicago
+  - Department of Ophthalmology
+  abstract: ''
+- title: Neural network-based image reconstruction in swept - source optical coherence tomography using
+    undersampled spectral data
+  date: 2021-03
+  url: https://arxiv.org/abs/2103.03877
+  category: method
+  subcategory: ss-oct
+  authors:
+  - Yijie Zhang
+  - Tairan Liu
+  - Manmohan Singh
+  - Yilin Luo
+  - Yair Rivenson
+  - Kirill V. Larin
+  - Aydogan Ozcan
+  abstract: ''
+- title: Multi-scale reconstruction of undersampled spectral-spatial OCT data for coronary imaging using
+    deep learning
+  date: 2022-04
+  url: https://arxiv.org/abs/2204.11769
+  category: method
+  subcategory: ss-oct
+  authors:
+  - Xueshen Li
+  - Shengting Cao
+  - Hongshan Liu
+  - Xinwen Yao
+  - Brigitta C. Brott
+  - Silvio H. Litovsky
+  - Xiaoyu Song
+  - Yuye Ling
+  abstract: ''
+- title: 'Bridging the gap: Using deep learning to reconstruct noise-reduced super-resolved OCT images
+    from gapped spectra'
+  date: 2026-08
+  url: https://arxiv.org/abs/2608.11989
+  category: method
+  subcategory: sd-oct
+  authors:
+  - Jonas Nienhaus
+  - Thomas Schlegl
+  - Wolfgang Drexler
+  - Tilman Schmoll
+  - Rainer A. Leitgeb
+  abstract: ''
+- title: Polarization-Sensitive Module for Optical Coherence Tomography Instruments
   date: 2025-11
-  url: https://arxiv.org/abs/2511.00003
+  url: https://arxiv.org/abs/2511.11274
+  category: method
+  subcategory: ps-oct
+  authors:
+  - Po-Yi Lee
+  - Chuan-Bor Chueh
+  - Milen Shishkov
+  - Sebastián Ruiz-Lopera
+  - Tai-Ang Wang
+  - Hsiang-Chieh Lee
+  - Teresa Chen
+  - Brett E. Bouma
+  abstract: ''
+- title: 'ROSE: A Retinal OCT - Angiography Vessel Segmentation Dataset and New Model'
+  date: 2020-07
+  url: https://arxiv.org/abs/2007.05201
+  category: method
+  subcategory: octa
+  authors:
+  - Yuhui Ma
+  - Huaying Hao
+  - Huazhu Fu
+  - Jiong Zhang
+  - Jianlong Yang
+  - Jiang Liu
+  - Yalin Zheng
+  - Yitian Zhao
+  abstract: ''
+- title: Retinal blood flow speed quantification at the capillary level using temporal autocorrelation
+    fitting OCTA
+  date: 2023-02
+  url: https://arxiv.org/abs/2302.11612
+  category: method
+  subcategory: octa
+  authors:
+  - Yunchan Hwang
+  - Jungeun Won
+  - Antonio Yaghy
+  - Hiroyuki Takahashi
+  - Jessica M. Girgis
+  - Kenneth Lam
+  - Siyu Chen
+  - Eric M. Moult
+  abstract: ''
+- title: 'OMSN and FAROS: OCTA Microstructure Segmentation Network and Fully Annotated Retinal OCTA Segmentation
+    Dataset'
+  date: 2022-12
+  url: https://arxiv.org/abs/2212.13059
+  category: method
+  subcategory: octa
+  authors:
+  - Peng Xiao
+  - Xiaodong Hu
+  - Ke Ma
+  - Gengyuan Wang
+  - Ziqing Feng
+  - Yuancong Huang
+  - Jin Yuan
+  abstract: ''
+- title: 'In Defense of OCTA: The Reconstruction-Utility Gap in OCT-to-OCTA Synthesis'
+  date: 2026-08
+  url: https://arxiv.org/abs/2608.15626
+  category: method
+  subcategory: octa
+  authors:
+  - Michael Chertok
+  - Alon Tiosano
+  - Orly Gal-Or
+  - Lior Kramarski
+  - Einav Baharav Shlezinger
+  - Irit Bahar
+  - Lior Wolf
+  abstract: ''
+- title: Memory-efficient High-resolution OCT Volume Synthesis with Cascaded Amortized Latent Diffusion
+    Models
+  date: 2024-05
+  url: https://arxiv.org/abs/2405.16516
+  category: method
+  subcategory: dl
+  authors:
+  - Kun Huang
+  - Xiao Ma
+  - Yuhan Zhang
+  - Na Su
+  - Songtao Yuan
+  - Yong Liu
+  - Qiang Chen
+  - Huazhu Fu
+  abstract: ''
+- title: Retinal OCT Synthesis with Denoising Diffusion Probabilistic Models for Layer Segmentation
+  date: 2023-11
+  url: https://arxiv.org/abs/2311.05479
+  category: method
+  subcategory: dl
+  authors:
+  - Yuli Wu
+  - Weidong He
+  - Dennis Eschweiler
+  - Ningxin Dou
+  - Zixin Fan
+  - Shengli Mi
+  - Peter Walter
+  - Johannes Stegmaier
+  abstract: ''
+- title: nnUNet RASPP for Retinal OCT Fluid Detection, Segmentation and Generalisation over Variations
+    of Data Sources
+  date: 2023-02
+  url: https://arxiv.org/abs/2302.13195
+  category: method
+  subcategory: dl
+  authors:
+  - Nchongmaje Ndipenoch
+  - Alina Miron
+  - Zidong Wang
+  - Yongmin Li
+  abstract: ''
+- title: Demystifying Deep Learning Models for Retinal OCT Disease Classification using Explainable AI
+  date: 2021-11
+  url: https://arxiv.org/abs/2111.03890
+  category: method
+  subcategory: dl
+  authors:
+  - Tasnim Sakib Apon
+  - Mohammad Mahmudul Hasan
+  - Abrar Islam
+  - MD. Golam Rabiul Alam
+  abstract: ''
+- title: 'MIRAGE: Multimodal foundation model and benchmark for comprehensive retinal OCT image analysis'
+  date: 2025-06
+  url: https://arxiv.org/abs/2506.08900
+  category: method
+  subcategory: dl
+  authors:
+  - José Morano
+  - Botond Fazekas
+  - Emese Sükei
+  - Ronald Fecso
+  - Taha Emre
+  - Markus Gumpinger
+  - Georg Faustmann
+  - Marzieh Oghbaie
+  abstract: ''
+- title: Full end-to-end diagnostic workflow automation of 3D OCT via foundation model-driven AI for retinal
+    diseases
+  date: 2026-02
+  url: https://arxiv.org/abs/2602.03302
+  category: method
+  subcategory: dl
+  authors:
+  - Jinze Zhang
+  - Jian Zhong
+  - Li Lin
+  - Jiaxiong Li
+  - Ke Ma
+  - Naiyang Li
+  - Meng Li
+  - Yuan Pan
+  abstract: ''
+- title: 'Less is more: Ensemble Learning for Retinal Disease Recognition Under Limited Resources'
+  date: 2024-02
+  url: https://arxiv.org/abs/2402.09747
+  category: method
+  subcategory: dl
+  authors:
+  - Jiahao Wang
+  - Hong Peng
+  - Shengchao Chen
+  - Sufen Ren
+  abstract: ''
+- title: 'OCTolyzer: Fully automatic toolkit for segmentation and feature extracting in optical coherence
+    tomography and scanning laser ophthalmoscopy data'
+  date: 2024-07
+  url: https://arxiv.org/abs/2407.14128
+  category: method
+  subcategory: dl
+  authors:
+  - Jamie Burke
+  - Justin Engelmann
+  - Samuel Gibbon
+  - Charlene Hamid
+  - Diana Moukaddem
+  - Dan Pugh
+  - Tariq Farrah
+  - Niall Strang
+  abstract: ''
+- title: Deep learning network to correct axial and coronal eye motion in 3D OCT retinal imaging
+  date: 2023-05
+  url: https://arxiv.org/abs/2305.18361
+  category: method
+  subcategory: dl
+  authors:
+  - Yiqian Wang
+  - Alexandra Warter
+  - Melina Cavichini
+  - Varsha Alex
+  - Dirk-Uwe G. Bartsch
+  - William R. Freeman
+  - Truong Q. Nguyen
+  - Cheolhong An
+  abstract: ''
+- title: Clinically applicable deep learning for diagnosis and referral in retinal disease
+  date: 2018-08
+  url: https://doi.org/10.1038/s41591-018-0107-6
   category: application
-  subcategory: non-agentic
+  subcategory: ophthal
   authors:
-  - Example Author D
-  - Example Author E
-  venue: ''
-  code_url: ''
-  project_url: ''
-  abstract: A third placeholder. Once you add real papers, re-run the pipeline to
-    regenerate statistics and reports.
-  tags: []
-- title: 'Example Paper 4: An Evaluation Benchmark for Your Topic'
-  date: 2025-08
-  url: https://arxiv.org/abs/2508.00004
-  category: evaluation
-  subcategory: hybrid
+  - Jeffrey De Fauw
+  - Joseph R. Ledsam
+  - Bernardino Romera‐Paredes
+  - Stanislav Nikolov
+  - Nenad Tomašev
+  - Sam Blackwell
+  - Harry Askham
+  - Xavier Glorot
+  venue: Nature Medicine
+  abstract: ''
+- title: Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning
+  date: 2018-02
+  url: https://doi.org/10.1016/j.cell.2018.02.010
+  category: application
+  subcategory: ophthal
   authors:
-  - Example Author F
-  venue: ''
-  code_url: ''
-  project_url: ''
-  abstract: A placeholder abstract. This example demonstrates the evaluation category
-    with a hybrid subcategory. Replace with a real summary once you add actual papers.
-  tags: []
-- title: 'Example Paper 5: A Survey of Your Topic Across Domains'
+  - Daniel Kermany
+  - Michael H. Goldbaum
+  - Wenjia Cai
+  - Carolina C. S. Valentim
+  - Huiying Liang
+  - Sally L. Baxter
+  - Alex McKeown
+  - Ge Yang
+  venue: Cell
+  abstract: ''
+- title: Pivotal trial of an autonomous AI-based diagnostic system for detection of diabetic retinopathy
+    in primary care offices
+  date: 2018-08
+  url: https://doi.org/10.1038/s41746-018-0040-6
+  category: application
+  subcategory: ophthal
+  authors:
+  - Michael D. Abràmoff
+  - Philip T. Lavin
+  - Michele Birch
+  - Nilay Shah
+  - James C. Folk
+  venue: npj Digital Medicine
+  abstract: Artificial Intelligence (AI) has long promised to increase healthcare affordability, quality
+    and accessibility but FDA, until recently, had never authorized an autonomous AI diagnostic system.
+    This pivotal trial of an AI system to detect diabetic retinopathy (DR) in people with diabetes enrolled
+    900 subjects, with no history of DR at primary care clinics, by comparing to Wisconsin Fundus Photograph
+    Reading Center (FPRC) widefield stereoscopic photography and macular Optical Coherence Tomography
+    (OCT), by FPRC certified photographers, and FPRC grading of Early Treatment Diabetic Retinopathy Study
+    Severity Scale (ETDRS) and Diabetic Macular Edema (DME). More than mild DR (mtmDR) was defined as
+    ETDRS level 35 or higher, and/or DME, in at least one eye. AI system operators underwent a standardized
+    training protocol before study start. Median age was 59 years (range, 22-84 years); among participants,
+    47.5% of participants were male; 16.1% were Hispanic, 83.3% not Hispanic; 28.6% African American and
+    63.4% were not; 198 (23.8%) had mtmDR. The AI system exceeded all pre-specified superiority endpoints
+    at sensitivity of 87.2% (95% CI, 81.8-91.2%) (>85%), specificity of 90.7% (95% CI, 88.3-
+- title: Deep Learning to Predict Glaucoma Progression using Structural Changes in the Eye
+  date: 2024-06
+  url: https://arxiv.org/abs/2406.05605
+  category: application
+  subcategory: ophthal
+  authors:
+  - Sayan Mandal
+  abstract: ''
+- title: Nonperfused Retinal Capillaries -- A New Method Developed on OCT and OCTA
+  date: 2024-11
+  url: https://arxiv.org/abs/2411.05244
+  category: application
+  subcategory: ophthal
+  authors:
+  - Min Gao
+  - Yukun Guo
+  - Tristan T. Hormel
+  - Jie Wang
+  - Elizabeth White
+  - Dong-Wouk Park
+  - Thomas S. Hwang
+  - Steven T. Bailey
+  abstract: ''
+- title: Multiscale Color Guided Attention Ensemble Classifier for Age-Related Macular Degeneration using
+    Concurrent Fundus and Optical Coherence Tomography Images
+  date: 2024-09
+  url: https://arxiv.org/abs/2409.00718
+  category: application
+  subcategory: ophthal
+  authors:
+  - Pragya Gupta
+  - Subhamoy Mandal
+  - Debashree Guha
+  - Debjani Chakraborty
+  abstract: ''
+- title: Deep learning segmentation of fibrous cap in intravascular optical coherence tomography images
+  date: 2023-11
+  url: https://arxiv.org/abs/2311.06202
+  category: application
+  subcategory: cardio
+  authors:
+  - Juhwan Lee
+  - Justin N. Kim
+  - Luis A. P. Dallan
+  - Vladislav N. Zimin
+  - Ammar Hoori
+  - Neda S. Hassani
+  - Mohamed H. E. Makhlouf
+  - Giulio Guagliumi
+  abstract: ''
+- title: Structural constrained virtual histology staining for human coronary imaging using deep learning
+  date: 2022-11
+  url: https://arxiv.org/abs/2211.06737
+  category: application
+  subcategory: cardio
+  authors:
+  - Xueshen Li
+  - Hongshan Liu
+  - Xiaoyu Song
+  - Brigitta C. Brott
+  - Silvio H. Litovsky
+  - Yu Gan
+  abstract: ''
+- title: Intracoronary Optical Coherence Tomography Image Processing and Vessel Classification Using Machine
+    Learning
+  date: 2026-02
+  url: https://arxiv.org/abs/2602.15579
+  category: application
+  subcategory: cardio
+  authors:
+  - Amal Lahchim
+  - Lambros Athanasiou
+  abstract: ''
+- title: Attenuation artifact detection and severity classification in intracoronary OCT using mixed image
+    representations
+  date: 2025-03
+  url: https://arxiv.org/abs/2503.05322
+  category: application
+  subcategory: cardio
+  authors:
+  - Pierandrea Cancian
+  - Simone Saitta
+  - Xiaojin Gu
+  - Rudolf L. M. van Herten
+  - Thijs J. Luttikholt
+  - Jos Thannhauser
+  - Rick H. J. A. Volleberg
+  - Ruben G. A. van der Waerden
+  abstract: ''
+- title: Deep Learning based Skin-layer Segmentation for Characterizing Cutaneous Wounds from Optical
+    Coherence Tomography Images
+  date: 2023-06
+  url: https://arxiv.org/abs/2306.01252
+  category: application
+  subcategory: derm
+  authors:
+  - Prashant Kumar
+  - Swatantra Dhara
+  - Ayan Gope
+  - Jyotirmoy Chatterjee
+  - Subhamoy Mandal
+  abstract: ''
+- title: 3D Deep-learning-based Segmentation of Human Skin Sweat Glands and Their 3D Morphological Response
+    to Temperature Variations
+  date: 2025-04
+  url: https://arxiv.org/abs/2504.17255
+  category: application
+  subcategory: derm
+  authors:
+  - Shaoyu Pei
+  - Renxiong Wu
+  - Hao Zheng
+  - Lang Qin
+  - Shuaichen Lin
+  - Yuxing Gan
+  - Wenjing Huang
+  - Zhixuan Wang
+  abstract: ''
+- title: Cervical Optical Coherence Tomography Image Classification Based on Contrastive Self-Supervised
+    Texture Learning
+  date: 2021-08
+  url: https://arxiv.org/abs/2108.05081
+  category: application
+  subcategory: other
+  authors:
+  - Kaiyi Chen
+  - Qingbin Wang
+  - Yutao Ma
+  abstract: ''
+- title: Bayesian Deep Learning Approaches for Uncertainty-Aware Retinal OCT Image Segmentation for Multiple
+    Sclerosis
   date: 2025-05
-  url: https://arxiv.org/abs/2505.00005
-  category: survey
-  subcategory: non-agentic
+  url: https://arxiv.org/abs/2505.12061
+  category: application
+  subcategory: neuro
   authors:
-  - Example Author G
-  - Example Author H
-  venue: ''
-  code_url: ''
-  project_url: ''
-  abstract: Another placeholder abstract. The corpus pipeline uses title/abstract
-    text for trend analysis, so keep abstracts accurate when you add real papers.
-  tags: []
+  - Samuel T. M. Ball
+  abstract: ''
+- title: Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep learning
+  date: 2025-10
+  url: https://arxiv.org/abs/2510.00745
+  category: application
+  subcategory: other
+  authors:
+  - Andrés Laveda-Martínez
+  - Natalia P. García-de-la-Puente
+  - Fernando García-Torres
+  - Niels Møller Israelsen
+  - Ole Bang
+  - Dominik Brouczek
+  - Niels Benson
+  - Adrián Colomer
+  abstract: ''
+- title: Time-resolved sedimentation of dense potato-starch suspensions measured by optical coherence
+    tomography
+  date: 2026-08
+  url: https://arxiv.org/abs/2608.15067
+  category: application
+  subcategory: other
+  authors:
+  - T. Saiki
+  - H. Katsuragi
+  abstract: ''
+- title: Inflation of test accuracy due to data leakage in deep learning -based classification of OCT
+    images
+  date: 2022-02
+  url: https://arxiv.org/abs/2202.12267
+  category: evaluation
+  subcategory: dataset
+  authors:
+  - Iulian Emil Tampu
+  - Anders Eklund
+  - Neda Haj-Hosseini
+  abstract: ''
+- title: 'OCTDL: Optical Coherence Tomography Dataset for Image-Based Deep Learning Methods'
+  date: 2023-12
+  url: https://arxiv.org/abs/2312.08255
+  category: evaluation
+  subcategory: dataset
+  authors:
+  - Mikhail Kulyabin
+  - Aleksei Zhdanov
+  - Anastasia Nikiforova
+  - Andrey Stepichev
+  - Anna Kuznetsova
+  - Mikhail Ronkin
+  - Vasilii Borisov
+  - Alexander Bogachev
+  abstract: ''
+- title: Optical coherence tomography - principles and applications
+  date: 2003-01
+  url: https://doi.org/10.1088/0034-4885/66/2/204
+  category: survey
+  subcategory: review
+  authors:
+  - Adolf F. Fercher
+  - Wolfgang Drexler
+  - Christoph K. Hitzenberger
+  - Theo Lasser
+  venue: Reports on Progress in Physics
+  abstract: 'There have been three basic approaches to optical tomography since the early 1980s: diffraction
+    tomography, diffuse optical tomography and optical coherence tomography (OCT). Optical techniques
+    are of particular importance in the medical field, because these techniques promise to be safe and
+    cheap and, in addition, offer a therapeutic potential. Advances in OCT technology have made it possible
+    to apply OCT in a wide variety of applications but medical applications are still dominating. Specific
+    advantages of OCT are its high depth and transversal resolution, the fact, that its depth resolution
+    is decoupled from transverse resolution, high probing depth in scattering media, contact-free and
+    non-invasive operation, and the possibility to create various function dependent image contrasting
+    methods. This report presents the principles of OCT and the state of important OCT applications. OCT
+    synthesises cross-sectional images from a series of laterally adjacent depth-scans. At present OCT
+    is used in three different fields of optical imaging, in macroscopic imaging of structures which can
+    be seen by the naked eye or using weak magnifications, in microscopic imaging using magnifications
+    up'
+- title: Optical coherence tomography angiography
+  date: 2017-12
+  url: https://doi.org/10.1016/j.preteyeres.2017.11.003
+  category: survey
+  subcategory: review
+  authors:
+  - Richard F. Spaide
+  - James G. Fujimoto
+  - Nadia K. Waheed
+  - Srinivas R. Sadda
+  - Giovanni Staurenghi
+  venue: Progress in Retinal and Eye Research
+  abstract: Optical coherence tomography (OCT) was one of the biggest advances in ophthalmic imaging.
+    Building on that platform, OCT angiography (OCTA) provides depth resolved images of blood flow in
+    the retina and choroid with levels of detail far exceeding that obtained with older forms of imaging.
+    This new modality is challenging because of the need for new equipment and processing techniques,
+    current limitations of imaging capability, and rapid advancements in both imaging and in our understanding
+    of the imaging and applicable pathophysiology of the retina and choroid. These factors lead to a steep
+    learning curve, even for those with a working understanding dye-based ocular angiography. All for
+    a method of imaging that is a little more than 10 years old. This review begins with a historical
+    account of the development of OCTA, and the methods used in OCTA, including signal processing, image
+    generation, and display techniques. This forms the basis to understand what OCTA images show as well
+    as how image artifacts arise. The anatomy and imaging of specific vascular layers of the eye are reviewed.
+    The integration of OCTA in multimodal imaging in the evaluation of retinal vascular occlusive dis
+- title: 'Deep Learning and Computer Vision for Glaucoma Detection: A Review'
+  date: 2023-07
+  url: https://arxiv.org/abs/2307.16528
+  category: survey
+  subcategory: review
+  authors:
+  - Mona Ashtari-Majlan
+  - Mohammad Mahdi Dehshibi
+  - David Masip
+  abstract: ''
+- title: 'Automatic Segmentation of the Optic Nerve Head Region in Optical Coherence Tomography : A Methodological
+    Review'
+  date: 2021-09
+  url: https://arxiv.org/abs/2109.02322
+  category: survey
+  subcategory: review
+  authors:
+  - Rita Marques
+  - Danilo Andrade De Jesus
+  - João Barbosa Breda
+  - Jan Van Eijgen
+  - Ingeborg Stalmans
+  - Theo van Walsum
+  - Stefan Klein
+  - Pedro G. Vaz
+  abstract: ''

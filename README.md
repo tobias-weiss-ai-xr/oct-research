@@ -1,13 +1,13 @@
 <h1 align="center">
-  <strong>Research Corpus Skeleton</strong>
+  <strong>Optical Coherence Tomography (OCT)</strong>
 </h1>
-<h3 align="center">Agentic literature review, jump-started — fork me for your own topic</h3>
+<h3 align="center">Data-driven, auto-validated literature corpus on optical coherence tomography</h3>
 
 ### 🔗 Links
 
-- **License**: https://github.com/tobias-weiss-ai-xr/skeleton-research/blob/main/LICENSE
-- **CI**: https://github.com/<YOUR_ORG>/<YOUR_REPO>/actions/workflows/validate.yml
-- **GitHub Pages**: https://<YOUR_ORG>.github.io/<YOUR_REPO>/
+- **License**: https://github.com/tobias-weiss-ai-xr/oct-research/blob/main/LICENSE
+- **CI**: https://github.com/tobias-weiss-ai-xr/oct-research/actions/workflows/validate.yml
+- **GitHub Pages**: https://tobias-weiss-ai-xr.github.io/oct-research/
 
 
 > 🎓 **Workshop-ready:** This repository is the *skeleton* for a data-driven,
@@ -172,61 +172,229 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 ## 📚 Paper list
 
-- [📚 Methods & Architectures](#methods-&-architectures)
-  - [Agentic](#agentic)
-- [📚 Applications](#applications)
-  - [Non-Agentic](#non-agentic)
-- [📚 Evaluation & Benchmarks](#evaluation-&-benchmarks)
-  - [Hybrid](#hybrid)
-- [📚 Surveys & Taxonomies](#surveys-&-taxonomies)
-  - [Non-Agentic](#non-agentic)
-  - [Hybrid](#hybrid)
+- [📚 Methoden & Technikvarianten](#methoden-&-technikvarianten)
+  - [Grundlagen & Interferometrie](#grundlagen-&-interferometrie)
+  - [Spektraldomänen-OCT (SD-OCT)](#spektraldomänen-oct-(sd-oct))
+  - [Swept-Source-OCT (SS-OCT)](#swept-source-oct-(ss-oct))
+  - [OCT-Angiographie (OCTA)](#oct-angiographie-(octa))
+  - [Polarisations-sensitive OCT (PS-OCT)](#polarisations-sensitive-oct-(ps-oct))
+  - [Deep Learning & KI-Bildanalyse](#deep-learning-&-ki-bildanalyse)
+- [📚 Klinische & technische Anwendungen](#klinische-&-technische-anwendungen)
+  - [Ophthalmologie](#ophthalmologie)
+  - [Kardiologie](#kardiologie)
+  - [Dermatologie](#dermatologie)
+  - [Neuro & HNO](#neuro-&-hno)
+  - [Weitere Anwendungen](#weitere-anwendungen)
+- [📚 Evaluation, Datensätze & Benchmarks](#evaluation,-datensätze-&-benchmarks)
+  - [Datensätze & Benchmarks](#datensätze-&-benchmarks)
+- [📚 Surveys & Übersichtsarbeiten](#surveys-&-übersichtsarbeiten)
+  - [Übersichtsarbeiten](#übersichtsarbeiten)
 
-### Methods & Architectures
+### Methoden & Technikvarianten
 
-#### Agentic
-
-##### 2026
-
-- [2026] **Example Paper 2: An Agentic Method for Your Topic** [[paper](https://arxiv.org/abs/2603.00002)]
-
-[⬆ Back to top](#paper-list)
-
-### Applications
-
-#### Non-Agentic
-
-##### 2025
-
-- [2025] **Example Paper 3: Application Study in Your Domain** [[paper](https://arxiv.org/abs/2511.00003)]
-
-[⬆ Back to top](#paper-list)
-
-### Evaluation & Benchmarks
-
-#### Hybrid
-
-##### 2025
-
-- [2025] **Example Paper 4: An Evaluation Benchmark for Your Topic** [[paper](https://arxiv.org/abs/2508.00004)]
-
-[⬆ Back to top](#paper-list)
-
-### Surveys & Taxonomies
-
-#### Non-Agentic
-
-##### 2025
-
-- [2025] **Example Paper 5: A Survey of Your Topic Across Domains** [[paper](https://arxiv.org/abs/2505.00005)]
-
-[⬆ Back to top](#paper-list)
-
-#### Hybrid
+#### Grundlagen & Interferometrie
 
 ##### 2026
 
-- [2026] **Example Paper 1: A Foundational Survey of Your Topic** [[paper](https://arxiv.org/abs/2601.00001)]
+- [2026] **Seeded SU(1,1) interferometry for Fourier-domain optical coherence tomography** [[paper](https://arxiv.org/abs/2608.18750)]
+
+##### 1991
+
+- [1991] **Optical Coherence Tomography** *Science* [[paper](https://doi.org/10.1126/science.1957169)]
+
+[⬆ Back to top](#paper-list)
+
+#### Spektraldomänen-OCT (SD-OCT)
+
+##### 2026
+
+- [2026] **Bridging the gap: Using deep learning to reconstruct noise-reduced super-resolved OCT images from gapped spectra** [[paper](https://arxiv.org/abs/2608.11989)]
+
+##### 2003
+
+- [2003] **Sensitivity advantage of swept source and Fourier domain optical coherence tomography** *Optics Express* [[paper](https://doi.org/10.1364/OE.11.002183)]
+
+[⬆ Back to top](#paper-list)
+
+#### Swept-Source-OCT (SS-OCT)
+
+##### 2022
+
+- [2022] **Multi-scale reconstruction of undersampled spectral-spatial OCT data for coronary imaging using deep learning** [[paper](https://arxiv.org/abs/2204.11769)]
+
+##### 2021
+
+- [2021] **Neural network-based image reconstruction in swept - source optical coherence tomography using undersampled spectral data** [[paper](https://arxiv.org/abs/2103.03877)]
+
+[⬆ Back to top](#paper-list)
+
+#### OCT-Angiographie (OCTA)
+
+##### 2026
+
+- [2026] **In Defense of OCTA: The Reconstruction-Utility Gap in OCT-to-OCTA Synthesis** [[paper](https://arxiv.org/abs/2608.15626)]
+
+##### 2023
+
+- [2023] **Retinal blood flow speed quantification at the capillary level using temporal autocorrelation fitting OCTA** [[paper](https://arxiv.org/abs/2302.11612)]
+
+##### 2022
+
+- [2022] **OMSN and FAROS: OCTA Microstructure Segmentation Network and Fully Annotated Retinal OCTA Segmentation Dataset** [[paper](https://arxiv.org/abs/2212.13059)]
+
+##### 2020
+
+- [2020] **ROSE: A Retinal OCT - Angiography Vessel Segmentation Dataset and New Model** [[paper](https://arxiv.org/abs/2007.05201)]
+
+[⬆ Back to top](#paper-list)
+
+#### Polarisations-sensitive OCT (PS-OCT)
+
+##### 2025
+
+- [2025] **Polarization-Sensitive Module for Optical Coherence Tomography Instruments** [[paper](https://arxiv.org/abs/2511.11274)]
+
+[⬆ Back to top](#paper-list)
+
+#### Deep Learning & KI-Bildanalyse
+
+##### 2026
+
+- [2026] **Full end-to-end diagnostic workflow automation of 3D OCT via foundation model-driven AI for retinal diseases** [[paper](https://arxiv.org/abs/2602.03302)]
+
+##### 2025
+
+- [2025] **MIRAGE: Multimodal foundation model and benchmark for comprehensive retinal OCT image analysis** [[paper](https://arxiv.org/abs/2506.08900)]
+
+##### 2024
+
+- [2024] **OCTolyzer: Fully automatic toolkit for segmentation and feature extracting in optical coherence tomography and scanning laser ophthalmoscopy data** [[paper](https://arxiv.org/abs/2407.14128)]
+- [2024] **Memory-efficient High-resolution OCT Volume Synthesis with Cascaded Amortized Latent Diffusion Models** [[paper](https://arxiv.org/abs/2405.16516)]
+- [2024] **Less is more: Ensemble Learning for Retinal Disease Recognition Under Limited Resources** [[paper](https://arxiv.org/abs/2402.09747)]
+
+##### 2023
+
+- [2023] **Retinal OCT Synthesis with Denoising Diffusion Probabilistic Models for Layer Segmentation** [[paper](https://arxiv.org/abs/2311.05479)]
+- [2023] **Deep learning network to correct axial and coronal eye motion in 3D OCT retinal imaging** [[paper](https://arxiv.org/abs/2305.18361)]
+- [2023] **nnUNet RASPP for Retinal OCT Fluid Detection, Segmentation and Generalisation over Variations of Data Sources** [[paper](https://arxiv.org/abs/2302.13195)]
+
+##### 2022
+
+- [2022] **ADC-Net: An Open-Source Deep Learning Network for Automated Dispersion Compensation in Optical Coherence Tomography** [[paper](https://arxiv.org/abs/2201.12625)]
+
+##### 2021
+
+- [2021] **Demystifying Deep Learning Models for Retinal OCT Disease Classification using Explainable AI** [[paper](https://arxiv.org/abs/2111.03890)]
+
+[⬆ Back to top](#paper-list)
+
+### Klinische & technische Anwendungen
+
+#### Ophthalmologie
+
+##### 2024
+
+- [2024] **Nonperfused Retinal Capillaries -- A New Method Developed on OCT and OCTA** [[paper](https://arxiv.org/abs/2411.05244)]
+- [2024] **Multiscale Color Guided Attention Ensemble Classifier for Age-Related Macular Degeneration using Concurrent Fundus and Optical Coherence Tomography Images** [[paper](https://arxiv.org/abs/2409.00718)]
+- [2024] **Deep Learning to Predict Glaucoma Progression using Structural Changes in the Eye** [[paper](https://arxiv.org/abs/2406.05605)]
+
+##### 2018
+
+- [2018] **Clinically applicable deep learning for diagnosis and referral in retinal disease** *Nature Medicine* [[paper](https://doi.org/10.1038/s41591-018-0107-6)]
+- [2018] **Pivotal trial of an autonomous AI-based diagnostic system for detection of diabetic retinopathy in primary care offices** *npj Digital Medicine* [[paper](https://doi.org/10.1038/s41746-018-0040-6)]
+- [2018] **Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning** *Cell* [[paper](https://doi.org/10.1016/j.cell.2018.02.010)]
+
+[⬆ Back to top](#paper-list)
+
+#### Kardiologie
+
+##### 2026
+
+- [2026] **Intracoronary Optical Coherence Tomography Image Processing and Vessel Classification Using Machine Learning** [[paper](https://arxiv.org/abs/2602.15579)]
+
+##### 2025
+
+- [2025] **Attenuation artifact detection and severity classification in intracoronary OCT using mixed image representations** [[paper](https://arxiv.org/abs/2503.05322)]
+
+##### 2023
+
+- [2023] **Deep learning segmentation of fibrous cap in intravascular optical coherence tomography images** [[paper](https://arxiv.org/abs/2311.06202)]
+
+##### 2022
+
+- [2022] **Structural constrained virtual histology staining for human coronary imaging using deep learning** [[paper](https://arxiv.org/abs/2211.06737)]
+
+[⬆ Back to top](#paper-list)
+
+#### Dermatologie
+
+##### 2025
+
+- [2025] **3D Deep-learning-based Segmentation of Human Skin Sweat Glands and Their 3D Morphological Response to Temperature Variations** [[paper](https://arxiv.org/abs/2504.17255)]
+
+##### 2023
+
+- [2023] **Deep Learning based Skin-layer Segmentation for Characterizing Cutaneous Wounds from Optical Coherence Tomography Images** [[paper](https://arxiv.org/abs/2306.01252)]
+
+[⬆ Back to top](#paper-list)
+
+#### Neuro & HNO
+
+##### 2025
+
+- [2025] **Bayesian Deep Learning Approaches for Uncertainty-Aware Retinal OCT Image Segmentation for Multiple Sclerosis** [[paper](https://arxiv.org/abs/2505.12061)]
+
+[⬆ Back to top](#paper-list)
+
+#### Weitere Anwendungen
+
+##### 2026
+
+- [2026] **Time-resolved sedimentation of dense potato-starch suspensions measured by optical coherence tomography** [[paper](https://arxiv.org/abs/2608.15067)]
+
+##### 2025
+
+- [2025] **Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep learning** [[paper](https://arxiv.org/abs/2510.00745)]
+
+##### 2021
+
+- [2021] **Cervical Optical Coherence Tomography Image Classification Based on Contrastive Self-Supervised Texture Learning** [[paper](https://arxiv.org/abs/2108.05081)]
+
+[⬆ Back to top](#paper-list)
+
+### Evaluation, Datensätze & Benchmarks
+
+#### Datensätze & Benchmarks
+
+##### 2023
+
+- [2023] **OCTDL: Optical Coherence Tomography Dataset for Image-Based Deep Learning Methods** [[paper](https://arxiv.org/abs/2312.08255)]
+
+##### 2022
+
+- [2022] **Inflation of test accuracy due to data leakage in deep learning -based classification of OCT images** [[paper](https://arxiv.org/abs/2202.12267)]
+
+[⬆ Back to top](#paper-list)
+
+### Surveys & Übersichtsarbeiten
+
+#### Übersichtsarbeiten
+
+##### 2023
+
+- [2023] **Deep Learning and Computer Vision for Glaucoma Detection: A Review** [[paper](https://arxiv.org/abs/2307.16528)]
+
+##### 2021
+
+- [2021] **Automatic Segmentation of the Optic Nerve Head Region in Optical Coherence Tomography : A Methodological Review** [[paper](https://arxiv.org/abs/2109.02322)]
+
+##### 2017
+
+- [2017] **Optical coherence tomography angiography** *Progress in Retinal and Eye Research* [[paper](https://doi.org/10.1016/j.preteyeres.2017.11.003)]
+
+##### 2003
+
+- [2003] **Optical coherence tomography - principles and applications** *Reports on Progress in Physics* [[paper](https://doi.org/10.1088/0034-4885/66/2/204)]
 
 [⬆ Back to top](#paper-list)
 
@@ -236,56 +404,78 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 ## 📊 Corpus Statistics
 
-**5 papers** across **4 categories**.  
-Sources: **arXiv** 5 (100%).  
+**43 papers** across **4 categories**.  
+Sources: **arXiv** 36 (84%).  
 
 ### Top categories
 
 | Category | Papers | Recent | |
 |----------|--------|--------|-|
-| survey | **2** | 1 | ████████████ |
-| application | **1** | 1 | ██████░░░░░░ |
-| evaluation | **1** | 1 | ██████░░░░░░ |
-| method | **1** | 1 | ██████░░░░░░ |
+| method | **21** | 5 | ████████████ |
+| application | **16** | 3 | █████████░░░ |
+| survey | **4** | 0 | ██░░░░░░░░░░ |
+| evaluation | **2** | 0 | █░░░░░░░░░░░ |
 
 ### By year
 
 | Year | Papers | |
 |------|--------|-|
-| 2025 | 3 | ████████████ |
-| 2026 | 2 | ████████░░░░ |
+| 1991 | 1 | ██░░░░░░░░░░ |
+| 2003 | 2 | ███░░░░░░░░░ |
+| 2017 | 1 | ██░░░░░░░░░░ |
+| 2018 | 3 | ████░░░░░░░░ |
+| 2020 | 1 | ██░░░░░░░░░░ |
+| 2021 | 4 | ██████░░░░░░ |
+| 2022 | 5 | ████████░░░░ |
+| 2023 | 8 | ████████████ |
+| 2024 | 6 | █████████░░░ |
+| 2025 | 6 | █████████░░░ |
+| 2026 | 6 | █████████░░░ |
 
 ### Momentum (hottest categories)
 
 | Category | Total | Rate | Recent | Score |
 |----------|-------|------|--------|-------|
-| Application | 1 | 0.1/mo | 100% | 100 |
-| Evaluation | 1 | 0.1/mo | 100% | 100 |
-| Method | 1 | 0.1/mo | 100% | 100 |
-| Survey | 2 | 0.1/mo | 50% | 50 |
+| Method | 21 | 0.4/mo | 24% | 424 |
+| Evaluation | 2 | 0.0/mo | 0% | 0 |
+| Survey | 4 | 0.0/mo | 0% | 0 |
+| Application | 16 | 0.2/mo | 19% | -21 |
 
 ### Trending keywords
 
 | Keyword | Papers | Burst |
 |---------|--------|-------|
-| benchmark | 1 | 1.25 |
-| evaluation | 1 | 1.25 |
-| method | 1 | 1.25 |
-| application | 1 | 1.25 |
-| survey | 1 | 0.62 |
-| analysis | 1 | 0.62 |
+| polarization | 1 | 5.38 |
+| foundation model | 1 | 2.69 |
+| classification | 1 | 1.07 |
+| coronary | 1 | 1.07 |
+| deep learning | 2 | 0.67 |
+| segmentation | 1 | 0.49 |
+| retina | 1 | 0.36 |
+
+### Top venues
+
+| Venue | Papers |
+|-------|--------|
+| Science | 1 |
+| Optics Express | 1 |
+| Nature Medicine | 1 |
+| Cell | 1 |
+| npj Digital Medicine | 1 |
+| Reports on Progress in Physics | 1 |
+| Progress in Retinal and Eye Research | 1 |
 
 ### Research gaps (thinnest cells)
 
 | Cell | Papers |
 |------|--------|
-| `survey/hybrid` | 1 |
-| `method/agentic` | 1 |
-| `application/non-agentic` | 1 |
-| `evaluation/hybrid` | 1 |
-| `survey/non-agentic` | 1 |
+| `method/ps-oct` | 1 |
+| `application/neuro` | 1 |
+| `method/fundamentals` | 2 |
+| `method/sd-oct` | 2 |
+| `method/ss-oct` | 2 |
 
-*Generated 2026-08 by `scripts/standard_stats.py`.*
+*Generated 2026-09 by `scripts/standard_stats.py`.*
 
 <!-- END CORPUS STATISTICS -->
 

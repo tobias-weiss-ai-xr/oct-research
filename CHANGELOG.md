@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+- **Corpus bootstrap:** `config/taxonomy.yaml` configured for Optical Coherence
+  Tomography (topic, OCT-specific categories/subcategories incl. SD-/SS-OCT,
+  OCTA, PS-OCT, DL, clinical domains, discovery queries, trend keywords);
+  `papers.yaml` populated with 43 verified papers (arXiv + DOI classics, e.g.
+  Huang 1991, Fercher 2003, Spaide 2018) across methods, applications,
+  evaluation and surveys.
 - **Quality gates:** added a pytest unit suite under `tests/` (config loading,
   validation, URL/LaTeX normalisation, bibtex escaping, repo relevance /
   classification, metadata ID extraction, saturate helpers, and the shared
