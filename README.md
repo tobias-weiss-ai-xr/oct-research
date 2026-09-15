@@ -10,9 +10,13 @@
 - **GitHub Pages**: https://tobias-weiss-ai-xr.github.io/oct-research/
 
 
-> 🎓 **Workshop-ready:** This repository is the *skeleton* for a data-driven,
-> auto-validated, agentic literature review — the same architecture used by the
-> `*-research` corpus repos (agent-memory, agent-skill, agent-learning, …).
+> ⚕️ **Auto-validated corpus:** a data-driven, agentic literature review of
+> optical coherence tomography (OCT). `papers.yaml` is the source of truth;
+> the README paper list, corpus statistics, and research reports are generated
+> and kept fresh by the pipeline — nothing human-maintained goes stale.
+>
+> Built on the `*-research` corpus skeleton, so it inherits the same
+> guardrailed agentic workflow (see `AGENTS.md`).
 
 ## What you get
 
@@ -32,33 +36,31 @@
 | 🖥️ **GitHub Pages site** | `docs/index.html` — searchable, filterable paper browser |
 | 🤖 **Agentic workflow** | `AGENTS.md` + `config/taxonomy.yaml` make this repo agent-friendly by design |
 
-## 🚀 Jump-start (5 steps)
+## 🚀 Day-to-day workflow
 
 ```bash
-# 1. Clone and rename
-git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-topic-research
-cd my-topic-research
-git remote set-url origin https://github.com/<YOUR_ORG>/my-topic-research.git  # repoint to your fork
-cd my-topic-research
+# 1. Add or edit a paper in papers.yaml (see "Adding a paper" in AGENTS.md)
 
-# 2. Define your topic & taxonomy
-#    Edit config/taxonomy.yaml: topic name, categories, subcategories, queries
-vim config/taxonomy.yaml
-
-# 3. Seed your corpus (start small — 5-10 papers is fine)
-#    Either hand-curate papers.yaml, or auto-discover:
-python3 scripts/fetch/fetch_new_papers.py --months 12 --dry-run   # preview arXiv hits
-python3 scripts/fetch/fetch_new_papers.py --local                 # append to papers.yaml
-
-# 4. Validate + generate
-python3 scripts/validate_papers.py
-python3 scripts/generate_readme.py
-python3 scripts/standard_stats.py
+# 2. Validate + regenerate all derived outputs
+python3 scripts/validate_papers.py && \
+python3 scripts/generate_readme.py && \
+python3 scripts/standard_stats.py && \
 python3 scripts/analysis/generate_reports.py
 
-# 5. Commit & let CI keep it healthy
-git add -A && git commit -m "bootstrap corpus for <YOUR TOPIC>"
-git push
+# 3. Commit — CI re-validates on push and re-checks freshness weekly
+git add -A && git commit -m "add OCT paper: <short title>" && git push
+
+# …or let discovery seed the corpus for you:
+python3 scripts/fetch/fetch_new_papers.py --months 12 --dry-run  # preview arXiv hits
+python3 scripts/fetch/fetch_new_papers.py --local                # append to papers.yaml
+```
+
+Or use the task runner:
+
+```bash
+make all       # validate → check freshness → generate → test
+make discover  # fetch new arXiv papers & open a PR (needs GH_TOKEN)
+make help      # list all targets
 ```
 
 ## 📖 How it works
@@ -484,12 +486,12 @@ Sources: **arXiv** 36 (84%).
 If you use this skeleton for a project, please cite:
 
 ```bibtex
-@misc{skeleton-research,
+@misc{oct-research,
   author = {Weiß, Tobias},
-  title = {Research Corpus Skeleton: Data-Driven Agentic Literature Review},
+  title = {OCT Research Corpus: Data-Driven Agentic Literature Review on Optical Coherence Tomography},
   year = {2026},
   publisher = {GitHub},
-  url = {https://github.com/tobias-weiss-ai-xr/skeleton-research}
+  url = {https://github.com/tobias-weiss-ai-xr/oct-research}
 }
 ```
 
