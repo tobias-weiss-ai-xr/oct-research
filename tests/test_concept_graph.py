@@ -1,12 +1,15 @@
-"""Unit tests for the concept-graph text matching (tools/relate_concepts.py).
+"""Unit tests for the concept-graph text matching (tools/relate_concepts.py)
+and graph metrics (tools/analyze_concept_graph.py).
 
 Regression guard: phrase words that appear hyphen-attached to other words in a
 title/abstract (e.g. "Neural network-based …") must still match the concept
 "neural network" — the TOKEN regex otherwise folds the compound into a single
-token and the subset check fails.
+token and the subset check fails. Second guard: modularity must be genuine
+Newman modularity (single community == 0 exactly).
 """
 
 from tools.relate_concepts import paper_set
+from tools.analyze_concept_graph import modularity
 
 
 def _text_paper(title, abstract=""):
@@ -43,3 +46,28 @@ def test_taxonomy_field_match_is_structural():
     papers = [_text_paper("Anything at all", "abstract with no keywords")]
     match = {"type": "field", "field": "category", "value": "method"}
     assert paper_set(0, papers, match) == {0}
+
+
+def _adj_weighted(edges):
+    """{u: {v: w}} undirected weighted adjacency from (u, v, w) triples."""
+    adj = {}
+    for u, v, w in edges:
+        adj.setdefault(u, {})[v] = w
+        adj.setdefault(v, {})[u] = w
+    return {k: dict(v) for k, v in adj.items()}
+
+
+def test_modularity_single_community_is_zero():
+    # One edge, one community -> Newman Q must be exactly 0 (not >0).
+    adj = _adj_weighted([(0, 1, 1)])
+    assert modularity(adj, [[0, 1]]) == 0.0
+
+
+def test_modularity_split_edge_is_negative():
+    adj = _adj_weighted([(0, 1, 1)])
+    assert modularity(adj, [[0], [1]]) == -0.5
+
+
+def test_modularity_two_edges_one_community_is_zero():
+    adj = _adj_weighted([(0, 1, 2), (1, 2, 3)])
+    assert modularity(adj, [[0, 1, 2]]) == 0.0

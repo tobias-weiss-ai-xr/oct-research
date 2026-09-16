@@ -172,8 +172,11 @@ def communities(adj, iters=25):
 
 
 def modularity(adj, comms):
+    """Newman modularity (weighted). Null model is summed over ALL pairs
+    sharing a community (not just edge pairs), so a single all-in-one
+    community returns exactly 0.0."""
     nodes = list(adj)
-    m = sum(len(adj[v]) for v in nodes) / 2.0
+    m = sum(sum(adj[v].values()) for v in nodes) / 2.0
     if m == 0:
         return 0.0
     deg = {v: sum(adj[v].values()) for v in nodes}
@@ -181,12 +184,16 @@ def modularity(adj, comms):
     for i, c in enumerate(comms):
         for v in c:
             comm_of[v] = i
-    q = 0.0
+    inside = 0.0
     for v in nodes:
         for w, wgt in adj[v].items():
             if comm_of.get(v) == comm_of.get(w):
-                q += wgt - (deg[v] * deg[w]) / (2 * m)
-    return q / (2 * m)
+                inside += wgt
+    null = 0.0
+    for c in comms:
+        s = sum(deg[v] for v in c)
+        null += s * s
+    return inside / (2 * m) - null / ((2 * m) * (2 * m))
 
 
 def main():
@@ -223,7 +230,12 @@ def main():
     node_rows.sort(key=lambda r: -r["pagerank"])
 
     term = {vid: nodes[vid]["term"] for vid in nodes}
-    top_hubs = [r["term"] for r in node_rows[:10]]
+    n_concepts = sum(1 for r in node_rows if r["kind"] != "paper")
+    n_papers = len(node_rows) - n_concepts
+    concept_rows = [r for r in node_rows if r["kind"] != "paper"]
+    paper_rows = [r for r in node_rows if r["kind"] == "paper"]
+    top_hubs = [r["term"] for r in concept_rows[:10]]
+    top_papers = [r["term"] for r in paper_rows[:10]]
     bridge_nodes = [r["term"] for r in sorted(node_rows, key=lambda r: -r["betweenness"])[:10]
                     if r["betweenness"] > 0]
     bridge_edges = []
@@ -234,16 +246,21 @@ def main():
 
     comm_list = []
     for c in sorted(comms, key=lambda c: -len(c)):
-        comm_list.append({"size": len(c),
-                          "members": sorted(term[v] for v in c)})
+        comm_list.append({
+            "size": len(c),
+            "concepts": sorted(term[v] for v in c if nodes[v].get("kind") != "paper"),
+            "papers": sorted(term[v] for v in c if nodes[v].get("kind") == "paper"),
+        })
 
     result = {
-        "stats": {"nodes": n, "edges": sum(len(adj[v]) for v in adj) // 2,
+        "stats": {"nodes": n, "concepts": n_concepts, "papers": n_papers,
+                  "edges": sum(len(adj[v]) for v in adj) // 2,
                   "components": len(comps), "communities": len(comms),
                   "modularity": round(q, 4)},
         "nodes": node_rows,
         "communities": comm_list,
         "top_hubs": top_hubs,
+        "top_papers": top_papers,
         "bridge_nodes": bridge_nodes,
         "bridge_edges": bridge_edges,
     }
@@ -253,13 +270,20 @@ def main():
         out = REPO / "docs" / "research" / "concept_graph_analysis.md"
         out.parent.mkdir(parents=True, exist_ok=True)
         L = ["# Concept Graph Analysis", "",
-             f"**Generated:** {n} nodes, {result['stats']['edges']} edges, "
-             f"{len(comps)} components, {len(comms)} communities "
-             f"(modularity {round(q,3)}). Edges = co-occurrence.", ""]
-        L += ["## Top hubs (by PageRank)", ""]
-        for r in node_rows[:12]:
+             f"**Generated:** {n_concepts} concepts + {n_papers} papers, "
+             f"{result['stats']['edges']} edges, {len(comps)} components, "
+             f"{len(comms)} communities (modularity {round(q,3)}). "
+             f"Edges = concept co-occurrence + paper↔concept realisation.", ""]
+        L += ["## Top concept hubs (by PageRank)", ""]
+        for r in concept_rows[:12]:
             L.append(f"- **{r['term']}** — PR {r['pagerank']:.4f}, "
                      f"degree {r['degree']}, df {r['df']}")
+        L += ["", "## Most central papers (by PageRank)", ""]
+        if paper_rows:
+            for r in paper_rows[:10]:
+                L.append(f"- {r['term']} — PR {r['pagerank']:.4f}, degree {r['degree']}")
+        else:
+            L.append("- (none)")
         L += ["", "## Bridge nodes (high betweenness — connect clusters)", ""]
         if bridge_nodes:
             for t in bridge_nodes[:10]:
@@ -273,13 +297,18 @@ def main():
                          f"(weight {e['weight']}, EB {e['edge_betweenness']})")
         else:
             L.append("- (none)")
-        L += ["", "## Communities (clusters of related concepts)", ""]
+        L += ["", "## Communities (clusters of concepts + their papers)", ""]
         for i, c in enumerate(comm_list[:12]):
-            members = ", ".join(c["members"][:12])
-            L.append(f"### Cluster {i+1} ({c['size']} concepts)")
+            concepts = ", ".join(c["concepts"][:14])
+            L.append(f"### Cluster {i+1} ({c['size']} nodes: "
+                     f"{len(c['concepts'])} concepts, {len(c['papers'])} papers)")
             L.append("")
-            L.append(members)
+            L.append(f"Concepts: {concepts}")
             L.append("")
+            if c["papers"]:
+                papers_str = ", ".join(c["papers"][:8])
+                L.append(f"Papers: {papers_str}")
+                L.append("")
         L.append("")
         L.append(FOOTER)
         out.write_text("\n".join(L), encoding="utf-8")

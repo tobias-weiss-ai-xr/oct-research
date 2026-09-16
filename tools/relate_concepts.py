@@ -98,19 +98,38 @@ def main():
         for a, b in combinations(lst, 2):
             co[(a, b)] += 1
 
-    nodes = [{"id": i, "term": c["term"], "kind": c["kind"], "df": c.get("df", 0)}
-             for i, c in enumerate(active)]
-    edges = [{"source": a, "target": b, "weight": w}
-             for (a, b), w in co.items() if w >= args.min_co]
+    # Bipartite knowledge graph: concept nodes (0..C-1) + paper nodes (C..).
+    # A paper gets a node iff it realizes >=1 active concept; the paper↔concept
+    # edges make shared-concept chains navigable and let papers be ranked.
+    NC = len(active)
+    concept_nodes = [{"id": i, "term": c["term"], "kind": c["kind"], "df": c.get("df", 0)}
+                     for i, c in enumerate(active)]
+    paper_nodes = []
+    for pi in sorted(pmap):
+        p = papers[pi]
+        paper_nodes.append({
+            "id": NC + pi, "term": p["title"], "kind": "paper", "df": 1,
+            "year": str(p.get("date", ""))[:4],
+            "category": p.get("category", ""),
+            "subcategory": p.get("subcategory", ""),
+            "venue": p.get("venue", ""),
+        })
+
+    co_edges = [{"source": a, "target": b, "weight": w}
+                for (a, b), w in co.items() if w >= args.min_co]
+    paper_edges = [{"source": NC + pi, "target": ci, "weight": 1}
+                   for pi, cst in pmap.items() for ci in cst]
+    edges = co_edges + paper_edges
 
     adj = defaultdict(list)
     for e in edges:
         adj[e["source"]].append((e["target"], e["weight"]))
         adj[e["target"]].append((e["source"], e["weight"]))
 
-    graph = {"nodes": nodes, "edges": edges,
-             "stats": {"concepts": len(nodes), "edges": len(edges),
-                       "papers": len(papers)}}
+    graph = {"nodes": concept_nodes + paper_nodes, "edges": edges,
+             "stats": {"concepts": NC, "papers": len(paper_nodes),
+                       "edges": len(edges), "concept_edges": len(co_edges),
+                       "paper_concept_edges": len(paper_edges)}}
     print(json.dumps(graph, indent=2, ensure_ascii=False))
 
     if args.write_doc:
@@ -118,8 +137,10 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         lines = ["# Concept Map — Knowledge Graph of the Corpus",
                  "",
-                 f"**Generated:** {len(nodes)} concepts, {len(edges)} relationships "
-                 f"from {len(papers)} papers. Edges = co-occurrence (shared papers).",
+                 f"**Generated:** {graph['stats']['concepts']} concepts + "
+                 f"{graph['stats']['papers']} papers, "
+                 f"{graph['stats']['concept_edges']} co-occurrence + "
+                 f"{graph['stats']['paper_concept_edges']} paper↔concept relationships.",
                  "",
                  "## Top concepts",
                  "",
@@ -128,11 +149,26 @@ def main():
         for c in active[:40]:
             lines.append(f"| {c['term']} | {c['kind']} | {c.get('df',0)} |")
         lines.append("")
+        node_by_id = {n["id"]: n for n in graph["nodes"]}
+        lines.append("## Representative papers per top concept")
+        lines.append("")
+        for c in active[:15]:
+            i = active.index(c)
+            pids = [x[0] for x in adj[i] if x[0] >= NC]
+            if not pids:
+                continue
+            lines.append(f"### {c['term']} — {len(pids)} paper(s)")
+            lines.append("")
+            for pid in pids[:8]:
+                pn = node_by_id[pid]
+                lines.append(f"- {pn['term']} ({pn.get('year','')})")
+            lines.append("")
+        lines.append("")
         lines.append("## Relationships (top concepts → related concepts)")
         lines.append("")
         for c in active[:25]:
             i = active.index(c)
-            rels = sorted(adj[i], key=lambda x: -x[1])[:8]
+            rels = sorted((x for x in adj[i] if x[0] < NC), key=lambda x: -x[1])[:8]
             if not rels:
                 continue
             lines.append(f"### {c['term']}")
@@ -140,6 +176,15 @@ def main():
             for j, w in rels:
                 lines.append(f"- {active[j]['term']} — {w} shared paper(s)")
             lines.append("")
+        lines.append("")
+        lines.append("## Most central papers (realize the most concepts)")
+        lines.append("")
+        paper_rows = sorted(
+            ({"title": n["term"], "year": n.get("year", ""), "concepts": len(adj[n["id"]])}
+             for n in paper_nodes),
+            key=lambda r: -r["concepts"])
+        for r in paper_rows[:15]:
+            lines.append(f"- {r['title']} ({r['year']}) — {r['concepts']} concepts")
         lines.append("")
         lines.append(FOOTER)
         out.write_text("\n".join(lines), encoding="utf-8")
