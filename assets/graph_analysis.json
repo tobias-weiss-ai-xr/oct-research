@@ -3,12 +3,15 @@
   {
    "id": "application",
    "name": "Klinische & technische Anwendungen",
-   "count": 16,
+   "count": 31,
    "trajectory": {
-    "2018": 3,
+    "2014": 2,
+    "2018": 4,
+    "2019": 4,
+    "2020": 3,
     "2021": 1,
-    "2022": 1,
-    "2023": 2,
+    "2022": 3,
+    "2023": 5,
     "2024": 3,
     "2025": 4,
     "2026": 2
@@ -16,13 +19,13 @@
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 16,
+    "total": 31,
     "recent": 3,
     "prior": 5,
     "growth_pct": -40.0,
-    "recent_share": 0.188,
+    "recent_share": 0.097,
     "papers_per_month": 0.2,
-    "score": -21.2
+    "score": -30.3
    }
   },
   {
@@ -139,7 +142,7 @@
   {
    "id": "other",
    "name": "Weitere Anwendungen",
-   "count": 3
+   "count": 18
   },
   {
    "id": "ps-oct",
@@ -179,9 +182,24 @@
    "sd-oct"
   ],
   [
+   "2014-01",
+   "application",
+   "other"
+  ],
+  [
+   "2014-10",
+   "application",
+   "other"
+  ],
+  [
    "2017-12",
    "survey",
    "review"
+  ],
+  [
+   "2018-01",
+   "application",
+   "other"
   ],
   [
    "2018-02",
@@ -199,9 +217,44 @@
    "ophthal"
   ],
   [
+   "2019-03",
+   "application",
+   "other"
+  ],
+  [
+   "2019-04",
+   "application",
+   "other"
+  ],
+  [
+   "2019-04",
+   "application",
+   "other"
+  ],
+  [
+   "2019-04",
+   "application",
+   "other"
+  ],
+  [
+   "2020-05",
+   "application",
+   "other"
+  ],
+  [
+   "2020-06",
+   "application",
+   "other"
+  ],
+  [
    "2020-07",
    "method",
    "octa"
+  ],
+  [
+   "2020-12",
+   "application",
+   "other"
   ],
   [
    "2021-03",
@@ -244,9 +297,24 @@
    "cardio"
   ],
   [
+   "2022-11",
+   "application",
+   "other"
+  ],
+  [
+   "2022-12",
+   "application",
+   "other"
+  ],
+  [
    "2022-12",
    "method",
    "octa"
+  ],
+  [
+   "2023-01",
+   "application",
+   "other"
   ],
   [
    "2023-02",
@@ -257,6 +325,11 @@
    "2023-02",
    "method",
    "octa"
+  ],
+  [
+   "2023-05",
+   "application",
+   "other"
   ],
   [
    "2023-05",
@@ -272,6 +345,11 @@
    "2023-07",
    "survey",
    "review"
+  ],
+  [
+   "2023-09",
+   "application",
+   "other"
   ],
   [
    "2023-11",
@@ -381,6 +459,14 @@
  ],
  "venues": [
   {
+   "name": "Journal of Laser Applications",
+   "papers": 7
+  },
+  {
+   "name": "Micromachines",
+   "papers": 2
+  },
+  {
    "name": "Science",
    "papers": 1
   },
@@ -407,6 +493,30 @@
   {
    "name": "Progress in Retinal and Eye Research",
    "papers": 1
+  },
+  {
+   "name": "Physics Procedia",
+   "papers": 1
+  },
+  {
+   "name": "Optics Letters",
+   "papers": 1
+  },
+  {
+   "name": "IEEE Access",
+   "papers": 1
+  },
+  {
+   "name": "Optics and Lasers in Engineering",
+   "papers": 1
+  },
+  {
+   "name": "Sensors",
+   "papers": 1
+  },
+  {
+   "name": "Additive manufacturing",
+   "papers": 1
   }
  ],
  "keyword_bursts": [
@@ -414,49 +524,49 @@
    "keyword": "polarization",
    "recent": 1,
    "total": 1,
-   "burst_score": 5.38,
+   "burst_score": 7.25,
    "recent_share": 0.125
   },
   {
    "keyword": "foundation model",
    "recent": 1,
    "total": 2,
-   "burst_score": 2.69,
-   "recent_share": 0.125
-  },
-  {
-   "keyword": "classification",
-   "recent": 1,
-   "total": 5,
-   "burst_score": 1.07,
+   "burst_score": 3.62,
    "recent_share": 0.125
   },
   {
    "keyword": "coronary",
    "recent": 1,
    "total": 5,
-   "burst_score": 1.07,
+   "burst_score": 1.45,
+   "recent_share": 0.125
+  },
+  {
+   "keyword": "classification",
+   "recent": 1,
+   "total": 7,
+   "burst_score": 1.04,
    "recent_share": 0.125
   },
   {
    "keyword": "deep learning",
    "recent": 2,
    "total": 16,
-   "burst_score": 0.67,
+   "burst_score": 0.91,
    "recent_share": 0.25
   },
   {
    "keyword": "segmentation",
    "recent": 1,
    "total": 11,
-   "burst_score": 0.49,
+   "burst_score": 0.66,
    "recent_share": 0.125
   },
   {
    "keyword": "retina",
    "recent": 1,
    "total": 15,
-   "burst_score": 0.36,
+   "burst_score": 0.48,
    "recent_share": 0.125
   }
  ]

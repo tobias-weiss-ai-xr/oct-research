@@ -358,9 +358,42 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 - [2025] **Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep learning** [[paper](https://arxiv.org/abs/2510.00745)]
 
+##### 2023
+
+- [2023] **Synchrotron validation of inline coherent imaging for tracking laser keyhole depth** *Additive manufacturing* [[paper](https://doi.org/10.1016/j.addma.2023.103798)]
+- [2023] **An Efficient Method for Laser Welding Depth Determination Using Optical Coherence Tomography** *Sensors* [[paper](https://doi.org/10.3390/s23115223)]
+- [2023] **Fusing optical coherence tomography and photodiodes for diagnosis of weld features during remote laser welding of copper-to-aluminum** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0000803)]
+
+##### 2022
+
+- [2022] **Algorithms for Weld Depth Measurement in Laser Welding of Copper with Scanning Optical Coherence Tomography** *Micromachines* [[paper](https://doi.org/10.3390/mi13122243)]
+- [2022] **In-Process Analysis of Melt Pool Fluctuations with Scanning Optical Coherence Tomography for Laser Welding of Copper for Quality Monitoring** *Micromachines* [[paper](https://doi.org/10.3390/mi13111937)]
+
 ##### 2021
 
 - [2021] **Cervical Optical Coherence Tomography Image Classification Based on Contrastive Self-Supervised Texture Learning** [[paper](https://arxiv.org/abs/2108.05081)]
+
+##### 2020
+
+- [2020] **Applying optical coherence tomography for weld depth monitoring in remote laser welding of automotive battery tab connectors** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0000336)]
+- [2020] **Keyhole mapping to enable closed-loop weld penetration depth control for remote laser welding of aluminum components using optical coherence tomography** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0000086)]
+- [2020] **Real-time prediction of quality characteristics in laser beam welding using optical coherence tomography and machine learning** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0000077)]
+
+##### 2019
+
+- [2019] **Novel approach for weld depth determination using optical coherence tomography measurement in laser deep penetration welding of aluminum and steel** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/1.5082263)]
+- [2019] **Process control and quality assurance in remote laser beam welding by optical coherence tomography** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/1.5096103)]
+- [2019] **Inline weld depth measurement for high brilliance laser beam sources using optical coherence tomography** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/1.5096104)]
+- [2019] **Statistical evaluation method to determine the laser welding depth by optical coherence tomography** *Optics and Lasers in Engineering* [[paper](https://doi.org/10.1016/j.optlaseng.2019.03.014)]
+
+##### 2018
+
+- [2018] **Non-Destructive Identification of Weld-Boundary and Porosity Formation During Laser Transmission Welding by Using Optical Coherence Tomography** *IEEE Access* [[paper](https://doi.org/10.1109/access.2018.2882527)]
+
+##### 2014
+
+- [2014] **Automatic laser welding and milling with in situ inline coherent imaging** *Optics Letters* [[paper](https://doi.org/10.1364/ol.39.006217)]
+- [2014] **3D Polymer Weld Seam Characterization Based on Optical Coherence Tomography for Laser Transmission Welding Applications** *Physics Procedia* [[paper](https://doi.org/10.1016/j.phpro.2014.08.055)]
 
 [⬆ Back to top](#paper-list)
 
@@ -406,15 +439,15 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 ## 📊 Corpus Statistics
 
-**43 papers** across **4 categories**.  
-Sources: **arXiv** 36 (84%).  
+**58 papers** across **4 categories**.  
+Sources: **arXiv** 36 (62%).  
 
 ### Top categories
 
 | Category | Papers | Recent | |
 |----------|--------|--------|-|
-| method | **21** | 5 | ████████████ |
-| application | **16** | 3 | █████████░░░ |
+| application | **31** | 3 | ████████████ |
+| method | **21** | 5 | ████████░░░░ |
 | survey | **4** | 0 | ██░░░░░░░░░░ |
 | evaluation | **2** | 0 | █░░░░░░░░░░░ |
 
@@ -422,17 +455,19 @@ Sources: **arXiv** 36 (84%).
 
 | Year | Papers | |
 |------|--------|-|
-| 1991 | 1 | ██░░░░░░░░░░ |
-| 2003 | 2 | ███░░░░░░░░░ |
-| 2017 | 1 | ██░░░░░░░░░░ |
-| 2018 | 3 | ████░░░░░░░░ |
-| 2020 | 1 | ██░░░░░░░░░░ |
-| 2021 | 4 | ██████░░░░░░ |
-| 2022 | 5 | ████████░░░░ |
-| 2023 | 8 | ████████████ |
-| 2024 | 6 | █████████░░░ |
-| 2025 | 6 | █████████░░░ |
-| 2026 | 6 | █████████░░░ |
+| 1991 | 1 | █░░░░░░░░░░░ |
+| 2003 | 2 | ██░░░░░░░░░░ |
+| 2014 | 2 | ██░░░░░░░░░░ |
+| 2017 | 1 | █░░░░░░░░░░░ |
+| 2018 | 4 | ████░░░░░░░░ |
+| 2019 | 4 | ████░░░░░░░░ |
+| 2020 | 4 | ████░░░░░░░░ |
+| 2021 | 4 | ████░░░░░░░░ |
+| 2022 | 7 | ████████░░░░ |
+| 2023 | 11 | ████████████ |
+| 2024 | 6 | ███████░░░░░ |
+| 2025 | 6 | ███████░░░░░ |
+| 2026 | 6 | ███████░░░░░ |
 
 ### Momentum (hottest categories)
 
@@ -441,24 +476,26 @@ Sources: **arXiv** 36 (84%).
 | Method | 21 | 0.4/mo | 24% | 424 |
 | Evaluation | 2 | 0.0/mo | 0% | 0 |
 | Survey | 4 | 0.0/mo | 0% | 0 |
-| Application | 16 | 0.2/mo | 19% | -21 |
+| Application | 31 | 0.2/mo | 10% | -30 |
 
 ### Trending keywords
 
 | Keyword | Papers | Burst |
 |---------|--------|-------|
-| polarization | 1 | 5.38 |
-| foundation model | 1 | 2.69 |
-| classification | 1 | 1.07 |
-| coronary | 1 | 1.07 |
-| deep learning | 2 | 0.67 |
-| segmentation | 1 | 0.49 |
-| retina | 1 | 0.36 |
+| polarization | 1 | 7.25 |
+| foundation model | 1 | 3.62 |
+| coronary | 1 | 1.45 |
+| classification | 1 | 1.04 |
+| deep learning | 2 | 0.91 |
+| segmentation | 1 | 0.66 |
+| retina | 1 | 0.48 |
 
 ### Top venues
 
 | Venue | Papers |
 |-------|--------|
+| Journal of Laser Applications | 7 |
+| Micromachines | 2 |
 | Science | 1 |
 | Optics Express | 1 |
 | Nature Medicine | 1 |
@@ -466,6 +503,7 @@ Sources: **arXiv** 36 (84%).
 | npj Digital Medicine | 1 |
 | Reports on Progress in Physics | 1 |
 | Progress in Retinal and Eye Research | 1 |
+| Physics Procedia | 1 |
 
 ### Research gaps (thinnest cells)
 

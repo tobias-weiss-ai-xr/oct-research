@@ -632,3 +632,379 @@ papers:
   - Stefan Klein
   - Pedro G. Vaz
   abstract: ''
+- title: 3D Polymer Weld Seam Characterization Based on Optical Coherence Tomography for Laser Transmission Welding Applications
+  date: 2014-01
+  url: https://doi.org/10.1016/j.phpro.2014.08.055
+  category: application
+  subcategory: other
+  authors:
+  - Robert Schmitt
+  - Guilherme Mallmann
+  - M. Devrient
+  - Michael Schmidt
+  venue: Physics Procedia
+  abstract: Laser transmission welding is an established single-stage plastic joining process, which enables hermetically
+    sealed joints under the workpiece surface. The process requires joining partners with proper degrees of transmission and
+    absorption to the processing wavelength. For reaching a stable process an in-process quality assurance is very valuable.
+    Current monitoring systems have a limited usage, as no quantitative information of the weld itself is obtained without
+    its destruction. In medical and pharmaceutical applications a weld with leakage is e.g. unacceptable. The main objective
+    of this paper is the presentation of the optical coherence tomography as a tool for the quality assurance in laser transmission
+    welding. This approach enables the measurement of any residual gap, weld geometry, internal pores and leaks. The presented
+    results show that this technique allows even the characterization of welds using joining partners with thicknesses of
+    2 mm or with glass fiber reinforcement levels of 30% per weight.
+- title: Automatic laser welding and milling with in situ inline coherent imaging
+  date: 2014-10
+  url: https://doi.org/10.1364/ol.39.006217
+  category: application
+  subcategory: other
+  authors:
+  - Paul J. L. Webster
+  - Logan G. Wright
+  - Y. Ji
+  - Christopher M. Galbraith
+  - A. W. Kinross
+  - C. Van Vlack
+  - James M. Fräser
+  venue: Optics Letters
+  abstract: Although new affordable high-power laser technologies enable many processing applications in science and industry,
+    depth control remains a serious technical challenge. In this Letter we show that inline coherent imaging (ICI), with line
+    rates up to 312 kHz and microsecond-duration capture times, is capable of directly measuring laser penetration depth,
+    in a process as violent as kW-class keyhole welding. We exploit ICI's high speed, high dynamic range, and robustness to
+    interference from other optical sources to achieve automatic, adaptive control of laser welding, as well as ablation,
+    achieving 3D micron-scale sculpting in vastly different heterogeneous biological materials.
+- title: Non-Destructive Identification of Weld-Boundary and Porosity Formation During Laser Transmission Welding by Using
+    Optical Coherence Tomography
+  date: 2018-01
+  url: https://doi.org/10.1109/access.2018.2882527
+  category: application
+  subcategory: other
+  authors:
+  - Kanghae Kim
+  - Pilun Kim
+  - Jaeyul Lee
+  - Suwon Kim
+  - Sungjo Park
+  - Soo Ho Choi
+  - JunHo Hwang
+  - Jong‐Hoon Lee
+  - Ho Lee
+  - "\uFEFFRuchire Eranga \uFEFFWijesinghe"
+  - Mansik Jeon
+  - Jeehyun Kim
+  venue: IEEE Access
+  abstract: Laser transmission welding offers significant benefits over conventional welding techniques enabling single-stage
+    rapid plastic joining. The quality of laser transmission welded products is commonly assessed by measuring the weld penetration
+    depth, hardened weld boundary, and inspecting the formation of porosity. However, the existing methods of verification
+    are inevitably accompanied by destruction of the specimen. Thus, non-destructive quality assessment methods for laser
+    transmission welding have gained attention recently. Here, we demonstrated an extended industrial application of 860 nm
+    wavelength-based spectral domain optical coherence tomography for the non-destructive inspection of the aforementioned
+    quality parameters of laser transmission welded industrial plastic materials, i.e., polycarbonate and acrylonitrile butadiene
+    styrene copolymer. The acquired cross-sectional resolution and volumetric and intensity profiles sufficiently contributed
+    to the quality assessment procedure, revealing the weld boundary and porosity formation, and thus confirming the potential
+    applicability of optical coherence tomography for the quality inspection of laser transmission welded products.
+- title: Statistical evaluation method to determine the laser welding depth by optical coherence tomography
+  date: 2019-03
+  url: https://doi.org/10.1016/j.optlaseng.2019.03.014
+  category: application
+  subcategory: other
+  authors:
+  - Meiko Boley
+  - Florian Fetzer
+  - Rudolf Weber
+  - Thomas Graf
+  venue: Optics and Lasers in Engineering
+  abstract: Abstract A statistical filtering method to determine the depth of laser-welded seams from signals recorded by
+    means of optical coherence tomography (OCT) is proposed and discussed. The measured data points are initially classified
+    into noise and significant data by means of a noise probability, which was defined based on the normalized Poisson distribution.
+    A percentile filter is then applied to the significant data to obtain the depth of the weld seam. It is shown that the
+    depth determined by this approach corresponds to the real seam depth, as obtained from longitudinal sections, to within
+    an average error of less than 5%. The method can be applied to different laser welding situations without having to adjust
+    the filter parameters.
+- title: Novel approach for weld depth determination using optical coherence tomography measurement in laser deep penetration
+    welding of aluminum and steel
+  date: 2019-04
+  url: https://doi.org/10.2351/1.5082263
+  category: application
+  subcategory: other
+  authors:
+  - Christoph Mittelstädt
+  - Thorsten Mattulat
+  - Thomas Seefeld
+  - Markus Kogel‐Hollacher
+  venue: Journal of Laser Applications
+  abstract: The optical coherence tomography (OCT) is a measuring technology which is well-established in medical engineering
+    since the early 1990s. More recently, the technology found its way into laser materials processing where it is used for
+    seam tracking and inspection and also for monitoring and control of deep-penetration laser welding. In this work, deep-penetration
+    laser welding of aluminum and steel using an OCT-system for in-process monitoring of the weld depth was investigated.
+    It is shown that statistical data processing is mandatory to extract the actual keyhole depth. Therefore, two different
+    measures, percentile filtering and considering the frequency distribution of the OCT-data, were considered. Thereby, it
+    is demonstrated that the frequency distribution of the OCT-data has a specific pattern with a local maximum which correlates
+    with the keyhole depth. Moreover, this feature is more significant for welding aluminum and therefore enables one to detect
+    the weld depth more independently and accurately compared to currently applied measures.
+- title: Process control and quality assurance in remote laser beam welding by optical coherence tomography
+  date: 2019-04
+  url: https://doi.org/10.2351/1.5096103
+  category: application
+  subcategory: other
+  authors:
+  - Christian Stadter
+  - Maximilian Schmoeller
+  - Martin Zeitler
+  - Volkan Tueretkan
+  - Ulrich Munzert
+  - Michael F. Zaeh
+  venue: Journal of Laser Applications
+  abstract: Remote laser beam welding significantly outperforms conventional joining techniques in terms of flexibility and
+    productivity. This process benefits in particular from a highly focused laser radiation and thus from a well-defined heat
+    input. The small spot sizes of high brilliance laser beam sources, however, require a highly dynamic and precise positioning
+    of the beam. Also, the laser intensities typically applied in this context result in high process dynamics and in demand
+    for a method to ensure a sufficient weld quality. A novel sensor concept for remote laser processing based on optical
+    coherence tomography (OCT) was used for both quality assurance and edge tracking. The OCT sensor was integrated into a
+    3D scanner head equipped with an additional internal scanner to deflect the measuring beam independently of the processing
+    beam. With this system, the surface topography of the process zone as well as the surrounding area can be recorded. Fundamental
+    investigations on aluminum, copper, and galvanized steel were carried out. Initially, the influence of the material, the
+    angle of incidence, the welding position within the scanning field, and the temperature on the OCT measuring signal were
+    evaluated. Based on this, measuring strategies for edge tracking were developed and validated. It was shown that orthogonal
+    measuring lines in the advance of the process zone can reliably track the edge of a fillet weld. By recording the topography
+    in the trailing area of the process zone, it was possible to assess the weld seam quality. Comparing the results to microscopic
+    measurements, it was shown that the system is capable of clearly identifying characteristic features of the weld seam.
+    Also, it was possible to observe an influence of the welding process on the surface properties in the heat-affected zone,
+    based on the quality of the measuring signal.
+- title: Inline weld depth measurement for high brilliance laser beam sources using optical coherence tomography
+  date: 2019-04
+  url: https://doi.org/10.2351/1.5096104
+  category: application
+  subcategory: other
+  authors:
+  - Maximilian Schmoeller
+  - Christian Stadter
+  - Stefan Liebl
+  - Michael F. Zaeh
+  venue: Journal of Laser Applications
+  abstract: As a result of the rapidly growing importance of applications in electro mobility that require a precisely defined
+    laser weld depth, the demand for inline process monitoring and control is increasing. To overcome the challenges in process
+    data acquisition, this paper proposes the application of a novel sensor concept for deep penetration laser beam welding
+    with high brilliance laser sources. The experiments show that optical coherence tomography (OCT) can be used to measure
+    the weld depth by comparing the distance to the material surface with the distance to the keyhole bottom measured by the
+    sensor. Within the presented work, the measuring principle was used for the first time to observe a welding process with
+    a highly focused laser beam source. First, a preliminary experimental study was carried out to evaluate the influence
+    of the angle of incidence, the material, and the weld joint geometry on the quality of the sensor signal. When using a
+    multimode fiber laser with a focus diameter of 320 μm, the measurements showed a distinct behavior for aluminum and copper.
+    The findings about the measurement signal properties were then applied to laser beam welding with a single-mode fiber
+    laser with a spot diameter of only 55 μm. The spot diameter of the OCT measuring beam was about 50 μm and thus only slightly
+    smaller than that of the single-mode processing beam. A wide variety of tests were carried out to determine the limits
+    of the measurement procedure. The results show that the application of OCT allows inline monitoring of the weld depth
+    using both a multimode and a highly focused single-mode laser beam. In addition, various influences on the signal were
+    identified, e.g., the material-specific melt pool dynamics as well as several characteristic reflection and absorption
+    properties.
+- title: Real-time prediction of quality characteristics in laser beam welding using optical coherence tomography and machine
+    learning
+  date: 2020-05
+  url: https://doi.org/10.2351/7.0000077
+  category: application
+  subcategory: other
+  authors:
+  - Christian Stadter
+  - Maximilian Schmoeller
+  - Lara von Rhein
+  - Michael F. Zaeh
+  venue: Journal of Laser Applications
+  abstract: Laser beam welding significantly outperforms conventional joining techniques in terms of flexibility and productivity.
+    The process benefits, in particular, from the highly focused energy and thus from a well-defined heat input. The high
+    intensities of brilliant laser radiation, however, induce very dynamic effects and complex processes within the interaction
+    zone. The high process dynamics require a consistent and reliable quality assurance to ensure the required weld quality.
+    A novel sensor concept for laser material processing based on optical coherence tomography (OCT) was used to measure the
+    capillary depth of the keyhole during deep penetration welding. The OCT measurements were compared with analyses of the
+    surface quality of the weld seams. A machine learning approach could be utilized to reveal correlations between the weld
+    depth signal and the weld seam surface quality, underlining the high level of information contained in the OCT signal
+    about characteristic process phenomena that affect the weld seam quality. Fundamental investigations on aluminum, copper,
+    and galvanized steel were carried out to analyze the structure of the data recorded by the OCT sensor. Based on that,
+    evaluation strategies focusing on quality characteristics were developed and validated to enable a valid interpretation
+    of the OCT signal. The topography of the weld seams was used to classify the surface quality and correlated with the weld
+    depth signal of the OCT system. For this purpose, a preprocessing of the OCT data and a detailed analysis of the topographic
+    information were developed. The processed data were correlated using artificial neural networks. It was shown that by
+    using adequate network structures and training methods, the inline process data of the capillary depth can be used to
+    predict the surface quality with decent prediction accuracy.
+- title: Keyhole mapping to enable closed-loop weld penetration depth control for remote laser welding of aluminum components
+    using optical coherence tomography
+  date: 2020-06
+  url: https://doi.org/10.2351/7.0000086
+  category: application
+  subcategory: other
+  authors:
+  - Mikhail Sokolov
+  - Pasquale Franciosa
+  - Rehab Al Botros
+  - Dariusz Ceglarek
+  venue: Journal of Laser Applications
+  abstract: 'Remote laser welding (RLW) combines the positive features of tactile laser welding with additional benefits such
+    as increased processing speed, reduced operational cost and service, and higher process flexibility. A leading challenge
+    preventing the full uptake of RLW technology in industry is the lack of efficient closed loop in-process (CLIP) monitoring
+    and weld quality control solutions. This underpins the need to fuse multiple sensor technologies and data analytics with
+    predictive engineering simulations. Although the development and integration of a variety of sensors covers the radiation
+    spectrum from ultraviolet to far-infrared, the flawless deployment of CLIP solutions is still challenged by the need for
+    the following: signal denoising in the case of process instability; real-time data analytics; and adaptive control engineering
+    architecture to cope with process variations induced by manufacturing tolerances. This paper focuses on the aspect of
+    weld penetration depth control using optical coherence tomography (OCT) as a necessary step to enable adaptive penetration
+    depth control during RLW of aluminum components in the fillet lap joint configuration with consideration to part-to-part
+    gap variation. The approach entails decoupling the welding process parameters in two subsets: (1) in-plane control of
+    the heat input on the upper part to facilitate the droplet formation; and (2) out-of-plane heat management to achieve
+    the desired level of penetration control in the keyhole mode. This paper presents the results of finding the optimal placement
+    of the OCT beam with variable part-to-part gap conditions. Results have shown that statistical signal processing of the
+    raw OCT signal gives insight not only into the depth of the keyhole but can infer the shape of the keyhole itself. Current
+    limitations and next phases of research and development are highlighted based on the experimental study.'
+- title: Applying optical coherence tomography for weld depth monitoring in remote laser welding of automotive battery tab
+    connectors
+  date: 2020-12
+  url: https://doi.org/10.2351/7.0000336
+  category: application
+  subcategory: other
+  authors:
+  - Mikhail Sokolov
+  - Pasquale Franciosa
+  - Tianzhu Sun
+  - Dariusz Ceglarek
+  - Vincenzo Dimatteo
+  - Alessandro Ascari
+  - Alessandro Fortunato
+  - Falk Nagel
+  venue: Journal of Laser Applications
+  abstract: 'This paper addresses in-process monitoring of weld penetration depth (WPD) during remote laser welding of battery
+    tab connectors using optical coherence tomography (OCT). The research aims at studying the impact of welding process parameters
+    on the accuracy of WPD measurements. In general, the highest measurement accuracy is achievable by positioning the OCT
+    measuring beam toward the bottom of the keyhole. However, finding and maintaining the alignment between the OCT measuring
+    beam and the bottom of the keyhole is a challenging task because of the dynamic changes in the size and shape of the keyhole
+    itself. The paper addresses the above challenge by (1) developing welding process parameters for the Al-Cu thin foil lap
+    joint (Al 1050 foil 450 μm and Ni-plated Cu foil 300 μm) using a novel adjustable ring mode (ARM) laser and (2) integrating
+    OCT technology with two beams: one targeting the bottom of the keyhole and another as a reference to the part surface
+    (TwinTec technology). The methodology is underpinned by the “Keyhole Mapping” approach, which helps one to identify the
+    optimal placement of the OCT measuring beam with considerations to both measurement accuracy and stability of the keyhole.
+    Findings indicated that welding with the ARM laser results in a more stable process, reduces fluctuations of the keyhole
+    opening, and, therefore, helps one to improve the measurement accuracy by a factor of 50% (from the average error of 0.22
+    mm to 0.11 mm). Results further identified that the feasible operating window of the OCT measuring beam, corresponding
+    to the highest measurement accuracy, is below 20 μm in length.'
+- title: In-Process Analysis of Melt Pool Fluctuations with Scanning Optical Coherence Tomography for Laser Welding of Copper
+    for Quality Monitoring
+  date: 2022-11
+  url: https://doi.org/10.3390/mi13111937
+  category: application
+  subcategory: other
+  authors:
+  - Thomas Will
+  - Tobias Jeron
+  - Claudio Hoelbling
+  - Lars Müller
+  - Michael Schmidt
+  venue: Micromachines
+  abstract: Optical coherence tomography (OCT) is an inline process monitoring technology for laser welding with various applications
+    in the pre-, in-, and post-process. In-process monitoring with OCT focuses on the measurement of weld depth by the placement
+    of a singular measurement beam into the keyhole. A laterally scanned measurement beam gives the opportunity to measure
+    the keyhole and melt pool width. The processing region can be identified by separating higher signal intensities on the
+    workpiece surface from lower signal intensities from the keyhole and the melt pool. In this work, we apply a scanned measurement
+    beam for the identification of keyhole fluctuations. Different laser processing parameters are varied for laser welding
+    of copper to evoke welds in the heat conduction regime, stable deep penetration welding, and unstable deep penetration
+    welding. As keyhole instabilities can be related to the generation of spatter and other defects, we identified a feature
+    for the classification of different weld statuses. In consequence, feedback can be given about possible defects which
+    are originated in keyhole fluctuations (e.g., spatter).
+- title: Algorithms for Weld Depth Measurement in Laser Welding of Copper with Scanning Optical Coherence Tomography
+  date: 2022-12
+  url: https://doi.org/10.3390/mi13122243
+  category: application
+  subcategory: other
+  authors:
+  - Thomas Will
+  - Eduardo Massieu Garcia
+  - Claudio Hoelbling
+  - Christian Goth
+  - Michael Schmidt
+  venue: Micromachines
+  abstract: In-process monitoring of weld penetration depth is possible with optical coherence tomography (OCT). The weld
+    depth can be identified with OCT by statistical signal processing of the raw OCT signal and keyhole mapping. This approach
+    is only applicable to stable welding processes and requires a time-consuming keyhole mapping to identify the optimal placement
+    of a singular OCT measuring beam. In this work, we use an OCT measurement line for the identification of the weld depth.
+    This approach shows the advantage that the calibration effort can be reduced as the measurement line requires only calibration
+    in one dimension. As current literature focuses on weld depth measurement with a singular measurement point in the keyhole,
+    no optimal algorithm exists for weld depth measurement with an OCT measurement line. We developed seven different weld
+    depth processing pipelines and tested these algorithms under different weld conditions, such as stable deep penetration
+    welding, unstable deep penetration welding, and heat conduction welding. We analyzed the accuracy of the weld depth processing
+    algorithms by comparing the measured weld depth with metallographic weld depths. The intensity accumulation approach is
+    identified as the most accurate algorithm for successful weld depth measurement with a scanning OCT measurement line.
+- title: Fusing optical coherence tomography and photodiodes for diagnosis of weld features during remote laser welding of
+    copper-to-aluminum
+  date: 2023-01
+  url: https://doi.org/10.2351/7.0000803
+  category: application
+  subcategory: other
+  authors:
+  - Tine Brežan
+  - Pasquale Franciosa
+  - Matija Jezeršek
+  - Dariusz Ceglarek
+  venue: Journal of Laser Applications
+  abstract: This study has been designed to investigate whether variations in the features of laser weldments can be isolated
+    and diagnosed by fusing photodiodes and optical coherence tomography (OCT). Two manufacturing scenarios (variation in
+    laser power and focal offset) have been considered during remote laser welding of 0.2 mm thick Cu foils on 2 mm thick
+    Al 1050 plates with an adjustable ring mode laser integrated with a 1D oscillation head. The process was monitored by
+    measuring weld penetration depth with OCT and by process emissions (plasma and back-reflection) via photodiodes. The acquisition
+    frequency of all signals was 40 kHz. Strong correlations (r > 0.75) were shown between plasma, back-reflection, and OCT
+    signals and measured depth and width of the weld. Weak correlations (r < 0.5) between voids, cracks, and sensor signals
+    were observed. Although plasma is the predominant signal that carries most of the information about the process, and the
+    OCT allows direct measurement of the penetration depth, their integration reached 87% classification accuracy of the tested
+    welding scenarios. The main misclassification was observed between “good weld” and “over weld,” defined by the measured
+    weld depth. Sensor fusion strategies with manufacturing implications are discussed throughout the paper.
+- title: An Efficient Method for Laser Welding Depth Determination Using Optical Coherence Tomography
+  date: 2023-05
+  url: https://doi.org/10.3390/s23115223
+  category: application
+  subcategory: other
+  authors:
+  - Guanming Xie
+  - Sanhong Wang
+  - Yueqiang Zhang
+  - Biao Hu
+  - Yu Fu
+  - Qifeng Yu
+  - You Li
+  venue: Sensors
+  abstract: Online monitoring of laser welding depth is increasingly important, with the growing demand for the precise welding
+    depth in the field of power battery manufacturing for new energy vehicles. The indirect methods of welding depth measurement
+    based on optical radiation, visual image and acoustic signals in the process zone have low accuracy in the continuous
+    monitoring. Optical coherence tomography (OCT) provides a direct welding depth measurement during laser welding and shows
+    high achievable accuracy in continuous monitoring. Statistical evaluation approach accurately extracts the welding depth
+    from OCT data but suffers from complexity in noise removal. In this paper, an efficient method coupled DBSCAN (Density-Based
+    Spatial Clustering of Application with Noise) and percentile filter for laser welding depth determination was proposed.
+    The noise of the OCT data were viewed as outliers and detected by DBSCAN. After eliminating the noise, the percentile
+    filter was used to extract the welding depth. By comparing the welding depth determined by this approach and the actual
+    weld depth of longitudinal cross section, an average error of less than 5% was obtained. The precise laser welding depth
+    can be efficiently achieved by the method.
+- title: Synchrotron validation of inline coherent imaging for tracking laser keyhole depth
+  date: 2023-09
+  url: https://doi.org/10.1016/j.addma.2023.103798
+  category: application
+  subcategory: other
+  authors:
+  - Tristan G. Fleming
+  - Samuel J. Clark
+  - Xianqiang Fan
+  - Kamel Fezzaa
+  - Chu Lun Alex Leung
+  - Peter Lee
+  - James M. Fräser
+  venue: Additive manufacturing
+  abstract: In situ monitoring is critical to the increasing adoption of laser powder bed fusion (LPBF) and laser welding
+    by industry for manufacture of complex metallic components. Optical coherence tomography (OCT), an interferometric imaging
+    technique adapted from medical applications, is now widely used for operando monitoring of morphology during high-power
+    laser material processing. However, even in stable processing regimes, some OCT depth measurements from the keyhole (vapor
+    cavity formed at laser beam spot) appear too shallow or too deep when compared to ex situ measurements of weld depth.
+    It has remained unclear whether these outliers are due to imaging artifacts, multiple scattering of the imaging beam within
+    the keyhole, or real changes in keyhole depth, making it difficult to accurately extract weld depth and determine error
+    bounds. To provide a definitive explanation, we combine inline coherent imaging (ICI), a type of OCT, with synchrotron
+    X-ray imaging for simultaneous, operando monitoring of the full 2-dimensional keyhole profile at high-speed (280 kHz and
+    140 kHz, respectively). Even in a highly turbulent pore-generation mode, the depth measured with ICI closely follows the
+    keyhole depth extracted from radiography (>80% within ±14 µm). Ray-tracing simulations are used to confirm that the outliers
+    in ICI depth measurements (that significantly disagree with radiography) primarily result from multiple reflections of
+    the imaging light (57%). Synchrotron X-ray imaging also enables tracking of bubble and pore formation events. Pores are
+    generated during laser welding when the sidewalls of the keyhole rapidly (>10 m/s) collapse inwards, pinching off a bubble
+    from the keyhole root and resulting in a rapid decrease in keyhole depth. Evidence of bubble formation can be found in
+    ICI depth profiles alone, as rapid depth changes exhibit moderate correlation with bubble formation events (0.26). This
+    work moves closer to accurate, localized defect detection during laser welding and LPBF using ICI.

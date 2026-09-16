@@ -1,7 +1,7 @@
 # Literature Review
 
-**Generated:** 2026-09-15  
-**Corpus:** 43 papers across 4 categories
+**Generated:** 2026-09-16  
+**Corpus:** 58 papers across 4 categories
 
 > Synthesis of the corpus. Category insights are grounded in title/abstract analysis of the papers themselves.
 
@@ -11,13 +11,13 @@
 
 | Rank | Category | Papers |
 |------|----------|--------|
-| 1 | Methoden & Technikvarianten | 21 |
-| 2 | Klinische & technische Anwendungen | 16 |
+| 1 | Klinische & technische Anwendungen | 31 |
+| 2 | Methoden & Technikvarianten | 21 |
 | 3 | Surveys & Übersichtsarbeiten | 4 |
 | 4 | Evaluation, Datensätze & Benchmarks | 2 |
 
-**Time span:** 1991–2026 (median year 2021)
-**Dominant aspects:** Deep Learning & KI-Bildanalyse (10), Ophthalmologie (6), OCT-Angiographie (OCTA) (4)
+**Time span:** 1991–2026 (median year 2020)
+**Dominant aspects:** Weitere Anwendungen (18), Deep Learning & KI-Bildanalyse (10), Ophthalmologie (6)
 
 ---
 
@@ -28,7 +28,7 @@
 | Method | 21 | 5 | 1 | +400% | 24% | 0.4 |
 | Evaluation | 2 | 0 | 0 | — | 0% | 0.0 |
 | Survey | 4 | 0 | 0 | — | 0% | 0.0 |
-| Application | 16 | 3 | 5 | -40% | 19% | 0.2 |
+| Application | 31 | 3 | 5 | -40% | 10% | 0.2 |
 
 ---
 
@@ -43,12 +43,24 @@
 | `method/ss-oct` | 2 |
 | `application/derm` | 2 |
 | `evaluation/dataset` | 2 |
-| `application/other` | 3 |
+| `method/octa` | 4 |
 
 ---
 
 
 ## Category Insights
+
+### Klinische & technische Anwendungen (`application`)
+
+**Corpus size:** 31 papers
+
+**Recent papers:**
+
+- [2026-08] Time-resolved sedimentation of dense potato-starch suspensions measured by optical coherence to — https://arxiv.org/abs/2608.15067
+- [2026-02] Intracoronary Optical Coherence Tomography Image Processing and Vessel Classification Using Mac — https://arxiv.org/abs/2602.15579
+- [2025-10] Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep lea — https://arxiv.org/abs/2510.00745
+
+---
 
 ### Methoden & Technikvarianten (`method`)
 
@@ -59,18 +71,6 @@
 - [2026-08] Seeded SU(1,1) interferometry for Fourier-domain optical coherence tomography — https://arxiv.org/abs/2608.18750
 - [2026-08] Bridging the gap: Using deep learning to reconstruct noise-reduced super-resolved OCT images fr — https://arxiv.org/abs/2608.11989
 - [2026-08] In Defense of OCTA: The Reconstruction-Utility Gap in OCT-to-OCTA Synthesis — https://arxiv.org/abs/2608.15626
-
----
-
-### Klinische & technische Anwendungen (`application`)
-
-**Corpus size:** 16 papers
-
-**Recent papers:**
-
-- [2026-08] Time-resolved sedimentation of dense potato-starch suspensions measured by optical coherence to — https://arxiv.org/abs/2608.15067
-- [2026-02] Intracoronary Optical Coherence Tomography Image Processing and Vessel Classification Using Mac — https://arxiv.org/abs/2602.15579
-- [2025-10] Defect Segmentation in OCT scans of ceramic parts for non-destructive inspection using deep lea — https://arxiv.org/abs/2510.00745
 
 ---
 
