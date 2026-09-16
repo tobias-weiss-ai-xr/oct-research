@@ -360,6 +360,7 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 ##### 2023
 
+- [2023] **Understanding the coaxial optical coherence tomography signal during the laser welding of hidden T-joints** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0001157)]
 - [2023] **Synchrotron validation of inline coherent imaging for tracking laser keyhole depth** *Additive manufacturing* [[paper](https://doi.org/10.1016/j.addma.2023.103798)]
 - [2023] **An Efficient Method for Laser Welding Depth Determination Using Optical Coherence Tomography** *Sensors* [[paper](https://doi.org/10.3390/s23115223)]
 - [2023] **Fusing optical coherence tomography and photodiodes for diagnosis of weld features during remote laser welding of copper-to-aluminum** *Journal of Laser Applications* [[paper](https://doi.org/10.2351/7.0000803)]
@@ -372,6 +373,7 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 ##### 2021
 
 - [2021] **Cervical Optical Coherence Tomography Image Classification Based on Contrastive Self-Supervised Texture Learning** [[paper](https://arxiv.org/abs/2108.05081)]
+- [2021] **OCT Capillary Depth Measurement in Copper Micro Welding Using Green Lasers** *Applied Sciences* [[paper](https://doi.org/10.3390/app11062655)]
 
 ##### 2020
 
@@ -439,16 +441,16 @@ This repo is designed to be driven by coding agents (OpenCode, Claude Code, …)
 
 ## 📊 Corpus Statistics
 
-**58 papers** across **4 categories**.  
-Sources: **arXiv** 36 (62%).  
+**60 papers** across **4 categories**.  
+Sources: **arXiv** 36 (60%).  
 
 ### Top categories
 
 | Category | Papers | Recent | |
 |----------|--------|--------|-|
-| application | **31** | 3 | ████████████ |
+| application | **33** | 3 | ████████████ |
 | method | **21** | 5 | ████████░░░░ |
-| survey | **4** | 0 | ██░░░░░░░░░░ |
+| survey | **4** | 0 | █░░░░░░░░░░░ |
 | evaluation | **2** | 0 | █░░░░░░░░░░░ |
 
 ### By year
@@ -462,12 +464,12 @@ Sources: **arXiv** 36 (62%).
 | 2018 | 4 | ████░░░░░░░░ |
 | 2019 | 4 | ████░░░░░░░░ |
 | 2020 | 4 | ████░░░░░░░░ |
-| 2021 | 4 | ████░░░░░░░░ |
-| 2022 | 7 | ████████░░░░ |
-| 2023 | 11 | ████████████ |
-| 2024 | 6 | ███████░░░░░ |
-| 2025 | 6 | ███████░░░░░ |
-| 2026 | 6 | ███████░░░░░ |
+| 2021 | 5 | █████░░░░░░░ |
+| 2022 | 7 | ███████░░░░░ |
+| 2023 | 12 | ████████████ |
+| 2024 | 6 | ██████░░░░░░ |
+| 2025 | 6 | ██████░░░░░░ |
+| 2026 | 6 | ██████░░░░░░ |
 
 ### Momentum (hottest categories)
 
@@ -476,25 +478,25 @@ Sources: **arXiv** 36 (62%).
 | Method | 21 | 0.4/mo | 24% | 424 |
 | Evaluation | 2 | 0.0/mo | 0% | 0 |
 | Survey | 4 | 0.0/mo | 0% | 0 |
-| Application | 31 | 0.2/mo | 10% | -30 |
+| Application | 33 | 0.2/mo | 9% | -31 |
 
 ### Trending keywords
 
 | Keyword | Papers | Burst |
 |---------|--------|-------|
-| polarization | 1 | 7.25 |
-| foundation model | 1 | 3.62 |
-| coronary | 1 | 1.45 |
-| classification | 1 | 1.04 |
-| deep learning | 2 | 0.91 |
-| segmentation | 1 | 0.66 |
-| retina | 1 | 0.48 |
+| polarization | 1 | 7.5 |
+| foundation model | 1 | 3.75 |
+| coronary | 1 | 1.5 |
+| classification | 1 | 1.07 |
+| deep learning | 2 | 0.94 |
+| segmentation | 1 | 0.68 |
+| retina | 1 | 0.5 |
 
 ### Top venues
 
 | Venue | Papers |
 |-------|--------|
-| Journal of Laser Applications | 7 |
+| Journal of Laser Applications | 8 |
 | Micromachines | 2 |
 | Science | 1 |
 | Optics Express | 1 |

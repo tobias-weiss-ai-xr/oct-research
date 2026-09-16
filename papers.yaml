@@ -1008,3 +1008,55 @@ papers:
     from the keyhole root and resulting in a rapid decrease in keyhole depth. Evidence of bubble formation can be found in
     ICI depth profiles alone, as rapid depth changes exhibit moderate correlation with bubble formation events (0.26). This
     work moves closer to accurate, localized defect detection during laser welding and LPBF using ICI.
+
+- title: Understanding the coaxial optical coherence tomography signal during the laser welding of hidden T-joints
+  date: 2023-12
+  url: https://doi.org/10.2351/7.0001157
+  category: application
+  subcategory: other
+  authors:
+  - Thorsten Mattulat
+  venue: Journal of Laser Applications
+  abstract: In the case of “hidden” T-joints, the nonvisible web sheet is welded through the face sheet.
+    Positioning tolerances and movement due to the distortion of the web sheet represent the main
+    challenges to maintain on track during laser beam welding. This study investigated the assumption
+    that keyhole monitoring based on optical coherence tomography (OCT) could be utilized for seam
+    tracking by detecting critical misalignments between the laser beam and the web sheet position. It
+    hereby analyzed whether an emerging misalignment between the laser beam and the web sheet could be
+    discerned in the OCT data before the laser beam misses the web sheet and penetrated only the face
+    sheet. This prediction represents a key requirement for the industrial use of this approach. To this
+    end, this study investigated the welding of hidden T-joints with angular and parallel offsets of the
+    laser path relative to the web sheet centerline while recording with OCT. The interface zone between
+    the web and face sheets was recorded by a high-speed camera to detect the transmission of laser
+    radiation through a lower keyhole opening. It was shown that a lower keyhole opening, in combination
+    with transmitted radiation, was advantageous for the reliable detection of an emerging misalignment.
+    This lower keyhole opening can occur lateral to the web sheet prior to a misalignment, therefore
+    enabling a prediction of spot misalignments via OCT. The welding parameter dependent maximum
+    distance of the laser spot edge to the web sheet edge at detection was 0.1 mm in this study.
+- title: OCT Capillary Depth Measurement in Copper Micro Welding Using Green Lasers
+  date: 2021-03
+  url: https://doi.org/10.3390/app11062655
+  category: application
+  subcategory: other
+  authors:
+  - Tobias Beck
+  - Christoph Bantel
+  - Meiko Boley
+  - Jean Pierre Bergmann
+  venue: Applied Sciences
+  abstract: The transition of the powertrain from combustion to electric systems increases the demand for
+    reliable copper connections. For such applications, laser welding has become a key technology. Due
+    to the complexity of laser welding, especially at micro welding with small weld seam dimensions and
+    short process times, reliable in-line process monitoring has proven to be difficult. By using a
+    green laser with a wavelength of λ=515 nm, the welding process of copper benefits from an increased
+    absorption, resulting in a shallow and stable deep penetration welding process. This opens up new
+    possibilities for the process monitoring. In this contribution, the monitoring of the capillary
+    depth in micro copper welding, with welding depth of up to 1 mm, was performed coaxially using an
+    optical coherence tomography (OCT) system. By comparing the measured capillary depth and the actual
+    welding depth, a good correlation between two measured values could be shown independently of the
+    investigated process parameters and stability. Measuring the capillary depth allows a direct
+    determination of the present aspect ratio in the welding process. For deep penetration welding,
+    aspect ratios as low as 0.35 could be shown. By using an additional scanning system to superimpose
+    the welding motion with a spacial oscillating of the OCT beam perpendicular to the welding motion,
+    multiple information about the process could be determined. Using this method, several process
+    information can be measured simultaneously and is shown for the weld seam width exemplarily.

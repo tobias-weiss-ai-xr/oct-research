@@ -3,15 +3,15 @@
   {
    "id": "application",
    "name": "Klinische & technische Anwendungen",
-   "count": 31,
+   "count": 33,
    "trajectory": {
     "2014": 2,
     "2018": 4,
     "2019": 4,
     "2020": 3,
-    "2021": 1,
+    "2021": 2,
     "2022": 3,
-    "2023": 5,
+    "2023": 6,
     "2024": 3,
     "2025": 4,
     "2026": 2
@@ -19,13 +19,13 @@
    "momentum": {
     "id": "application",
     "name": "Application",
-    "total": 31,
+    "total": 33,
     "recent": 3,
     "prior": 5,
     "growth_pct": -40.0,
-    "recent_share": 0.097,
+    "recent_share": 0.091,
     "papers_per_month": 0.2,
-    "score": -30.3
+    "score": -30.9
    }
   },
   {
@@ -142,7 +142,7 @@
   {
    "id": "other",
    "name": "Weitere Anwendungen",
-   "count": 18
+   "count": 20
   },
   {
    "id": "ps-oct",
@@ -258,6 +258,11 @@
   ],
   [
    "2021-03",
+   "application",
+   "other"
+  ],
+  [
+   "2021-03",
    "method",
    "ss-oct"
   ],
@@ -363,6 +368,11 @@
   ],
   [
    "2023-12",
+   "application",
+   "other"
+  ],
+  [
+   "2023-12",
    "evaluation",
    "dataset"
   ],
@@ -460,7 +470,7 @@
  "venues": [
   {
    "name": "Journal of Laser Applications",
-   "papers": 7
+   "papers": 8
   },
   {
    "name": "Micromachines",
@@ -524,49 +534,49 @@
    "keyword": "polarization",
    "recent": 1,
    "total": 1,
-   "burst_score": 7.25,
+   "burst_score": 7.5,
    "recent_share": 0.125
   },
   {
    "keyword": "foundation model",
    "recent": 1,
    "total": 2,
-   "burst_score": 3.62,
+   "burst_score": 3.75,
    "recent_share": 0.125
   },
   {
    "keyword": "coronary",
    "recent": 1,
    "total": 5,
-   "burst_score": 1.45,
+   "burst_score": 1.5,
    "recent_share": 0.125
   },
   {
    "keyword": "classification",
    "recent": 1,
    "total": 7,
-   "burst_score": 1.04,
+   "burst_score": 1.07,
    "recent_share": 0.125
   },
   {
    "keyword": "deep learning",
    "recent": 2,
    "total": 16,
-   "burst_score": 0.91,
+   "burst_score": 0.94,
    "recent_share": 0.25
   },
   {
    "keyword": "segmentation",
    "recent": 1,
    "total": 11,
-   "burst_score": 0.66,
+   "burst_score": 0.68,
    "recent_share": 0.125
   },
   {
    "keyword": "retina",
    "recent": 1,
    "total": 15,
-   "burst_score": 0.48,
+   "burst_score": 0.5,
    "recent_share": 0.125
   }
  ]

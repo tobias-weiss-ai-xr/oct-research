@@ -1,7 +1,7 @@
 # Literature Review
 
 **Generated:** 2026-09-16  
-**Corpus:** 58 papers across 4 categories
+**Corpus:** 60 papers across 4 categories
 
 > Synthesis of the corpus. Category insights are grounded in title/abstract analysis of the papers themselves.
 
@@ -11,13 +11,13 @@
 
 | Rank | Category | Papers |
 |------|----------|--------|
-| 1 | Klinische & technische Anwendungen | 31 |
+| 1 | Klinische & technische Anwendungen | 33 |
 | 2 | Methoden & Technikvarianten | 21 |
 | 3 | Surveys & Übersichtsarbeiten | 4 |
 | 4 | Evaluation, Datensätze & Benchmarks | 2 |
 
 **Time span:** 1991–2026 (median year 2020)
-**Dominant aspects:** Weitere Anwendungen (18), Deep Learning & KI-Bildanalyse (10), Ophthalmologie (6)
+**Dominant aspects:** Weitere Anwendungen (20), Deep Learning & KI-Bildanalyse (10), Ophthalmologie (6)
 
 ---
 
@@ -28,7 +28,7 @@
 | Method | 21 | 5 | 1 | +400% | 24% | 0.4 |
 | Evaluation | 2 | 0 | 0 | — | 0% | 0.0 |
 | Survey | 4 | 0 | 0 | — | 0% | 0.0 |
-| Application | 31 | 3 | 5 | -40% | 10% | 0.2 |
+| Application | 33 | 3 | 5 | -40% | 9% | 0.2 |
 
 ---
 
@@ -52,7 +52,7 @@
 
 ### Klinische & technische Anwendungen (`application`)
 
-**Corpus size:** 31 papers
+**Corpus size:** 33 papers
 
 **Recent papers:**
 
