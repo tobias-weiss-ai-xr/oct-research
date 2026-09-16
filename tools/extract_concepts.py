@@ -176,6 +176,9 @@ def main():
     for e in papers:
         text = f" {e.get('title','')} {e.get('abstract','')} ".lower()
         toks = set(TOKEN.findall(text))
+        # hyphenated compounds (e.g. "network-based") also count as their
+        # parts, so a phrase word hyphen-attached to another word still matches
+        toks |= {p for t in list(toks) for p in t.split("-")}
         cell = f"{e.get('category','')}/{e.get('subcategory','')}"
         for c in text_cs:
             if c["_toks"] <= toks and any(p.search(text) for p in c["_pats"]):

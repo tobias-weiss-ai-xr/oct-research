@@ -54,6 +54,8 @@ def paper_set(ei, papers, match):
     for i, e in enumerate(papers):
         text = f" {e.get('title','')} {e.get('abstract','')} ".lower()
         tset = set(TOKEN.findall(text))
+        # hyphenated compounds (e.g. "network-based") also count as their parts
+        tset |= {p for t in list(tset) for p in t.split("-")}
         if any(tk <= tset and p.search(text) for tk, p in zip(toks, pats)):
             out.add(i)
     return out
